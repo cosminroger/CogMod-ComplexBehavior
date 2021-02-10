@@ -59,9 +59,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="choiceButtons" destination="z7i-Wa-SOJ" id="Ief-88-IEq"/>
-                        <outletCollection property="choiceButtons" destination="ewX-c9-Qc2" collectionClass="NSMutableArray" id="aQr-4k-2rB"/>
-                        <outletCollection property="choiceButtons" destination="lfY-ZX-OU4" collectionClass="NSMutableArray" id="wh4-3P-Xui"/>
+                        <outlet property="choiceButtons" destination="ewX-c9-Qc2" id="Ruj-Vu-mvr"/>
+                        <outletCollection property="choiceButtons" destination="z7i-Wa-SOJ" collectionClass="NSMutableArray" id="sKc-iG-ftl"/>
+                        <outletCollection property="choiceButtons" destination="lfY-ZX-OU4" collectionClass="NSMutableArray" id="LqH-HH-iri"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

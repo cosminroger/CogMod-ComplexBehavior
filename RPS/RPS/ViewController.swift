@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var choiceButtons: [UIButton]!
     
-        
+            
     @IBAction func makeChoice(_ sender: UIButton) {
         let choiceOption = choiceButtons.firstIndex(of: sender)!
         game.chooseOption(at: choiceOption)
