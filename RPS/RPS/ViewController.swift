@@ -17,7 +17,10 @@ class ViewController: UIViewController {
             
     @IBAction func makeChoice(_ sender: UIButton) {
         let choiceOption = choiceButtons.firstIndex(of: sender)!
+        let modelOption = 0
         game.chooseOption(at: choiceOption)
+        game.compareChoices(with: choiceOption, and: modelOption)
+        game.resetGame()
         updateView()
     }
     
