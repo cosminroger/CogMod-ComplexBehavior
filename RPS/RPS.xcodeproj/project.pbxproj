@@ -16,6 +16,8 @@
 		4D8D142625D3EDE5007423B7 /* RPSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D142525D3EDE5007423B7 /* RPSTests.swift */; };
 		4D8D143125D3EDE6007423B7 /* RPSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D143025D3EDE6007423B7 /* RPSUITests.swift */; };
 		4D8D144225D3EFDE007423B7 /* ACT-R in Resources */ = {isa = PBXBuildFile; fileRef = 4D8D144125D3EFDE007423B7 /* ACT-R */; };
+		A165CDE325D3F6CD005EAB5C /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A165CDE225D3F6CD005EAB5C /* Buttons.swift */; };
+		A165CDEB25D3F82B005EAB5C /* RPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A165CDEA25D3F82B005EAB5C /* RPS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		4D8D143025D3EDE6007423B7 /* RPSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSUITests.swift; sourceTree = "<group>"; };
 		4D8D143225D3EDE6007423B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D8D144125D3EFDE007423B7 /* ACT-R */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ACT-R"; sourceTree = "<group>"; };
+		A165CDE225D3F6CD005EAB5C /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		A165CDEA25D3F82B005EAB5C /* RPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 		4D8D140225D3EDBF007423B7 = {
 			isa = PBXGroup;
 			children = (
+				A165CDEA25D3F82B005EAB5C /* RPS.swift */,
+				A165CDE225D3F6CD005EAB5C /* Buttons.swift */,
 				4D8D144125D3EFDE007423B7 /* ACT-R */,
 				4D8D140D25D3EDBF007423B7 /* RPS */,
 				4D8D142425D3EDE5007423B7 /* RPSTests */,
@@ -265,6 +271,8 @@
 				4D8D141325D3EDBF007423B7 /* ViewController.swift in Sources */,
 				4D8D140F25D3EDBF007423B7 /* AppDelegate.swift in Sources */,
 				4D8D141125D3EDBF007423B7 /* SceneDelegate.swift in Sources */,
+				A165CDE325D3F6CD005EAB5C /* Buttons.swift in Sources */,
+				A165CDEB25D3F82B005EAB5C /* RPS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

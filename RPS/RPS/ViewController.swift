@@ -9,11 +9,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    var game: RPS = RPS()
+    
+    
+    @IBOutlet var choiceButtons: [UIButton]!
+    
+        
+    @IBAction func makeChoice(_ sender: UIButton) {
+        let choiceOption = choiceButtons.firstIndex(of: sender)
+        RPS.chooseOption(at: choiceOption)
     }
-
-
+    
+    func updateView() {
+        for index in choiceButtons.indices {
+            let button = choiceButtons[index]
+            let choice = RPS
+            if choice.isChosen {
+            
+            }
+        }
+    }
 }
-
