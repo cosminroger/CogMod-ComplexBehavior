@@ -1,0 +1,97 @@
+;;; Model of rock-paper-scissors
+;;;
+
+(add-dm
+   (rock1 isa decision model rock player rock payoffA 0 payoffB 0)
+   (rock2 isa decision model rock player paper payoffA 0 payoffB 1)
+   (rock3 isa decision model rock player scissors payoffA 1 payoffB 0)
+   
+   (paper1 isa decision model paper player rock payoffA 1 payoffB 0)
+   (paper2 isa decision model paper player paper payoffA 0 payoffB 0)
+   (paper3 isa decision model paper player scissors payoffA 0 payoffB 1)
+   
+   (scissors1 isa decision model scissors player rock payoffA 0 payoffB 1)
+   (scissors2 isa decision model scissors player paper payoffA 1 payoffB 0)
+   (scissors3 isa decision model scissors player scissors payoffA 0 payoffB 0)
+
+    (goal isa decision state start)
+)
+
+(set-all-baselevels -100 10) ;; time offset and number of references
+
+;;; Randomly start with a decision
+
+(p decide-action
+    =goal>
+        isa decision
+        state start
+==>
+    =goal>
+        state deciding
+    +retrieval>
+        isa decision
+        payoffA 1
+)
+
+(p take-action
+    =goal>
+        isa decision
+        state deciding
+    =retrieval>
+        isa decision
+        payoffA 1
+        payoffB 0
+==>
+    +action>
+        isa decision
+        model =move
+    =goal>
+        isa wait
+        model =model
+        state go
+)
+
+(p retrieve-sequence
+    =goal>
+        isa wait
+        model =model
+        player nil
+        state go
+    =imaginal>
+        player =player
+==>
+    =goal>
+        isa decision
+        state correcting
+        player =player
+)
+
+(p reinforce-correct
+    =goal>
+        isa wait
+        state correcting
+==>
+    =goal>
+        state again
+    +retrieval>
+        isa decision
+        player =player
+        payoffA 1
+)
+
+(p reset-goal
+    =goal>
+        isa wait
+        state again
+==>
+    =goal>
+        isa decision
+        state deciding
+        model nil
+        player nil
+)
+
+;;; IT ENDS HERE
+
+(goal-focus goal)
+
