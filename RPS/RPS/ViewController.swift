@@ -11,6 +11,21 @@ class ViewController: UIViewController {
 
     var game: RPS = RPS()
     
+    var playerScore = 0 {
+        didSet{
+            playerScoreLabel.text = "\(playerScore)"
+        }
+    }
+    
+    var modelScore = 0 {
+        didSet{
+            modelScoreLabel.text = "\(modelScore)"
+        }
+    }
+    
+    @IBOutlet var playerScoreLabel: UILabel!
+    
+    @IBOutlet var modelScoreLabel: UILabel!
     
     @IBOutlet var choiceButtons: [UIButton]!
     
@@ -19,7 +34,13 @@ class ViewController: UIViewController {
         let choiceOption = choiceButtons.firstIndex(of: sender)!
         let modelOption = 0
         game.chooseOption(at: choiceOption)
-        game.compareChoices(with: choiceOption, and: modelOption)
+        
+        let result = game.compareChoices(with: choiceOption, and: modelOption)
+        if result == 1 {
+            modelScore += 1
+        } else if result == 2 {
+            playerScore += 1
+        }
         game.resetGame()
         updateView()
     }
@@ -28,11 +49,9 @@ class ViewController: UIViewController {
         for index in choiceButtons.indices {
             let button = choiceButtons[index]
             let choice = game.choices[index]
-            if choice.isChosen {
-                button.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-            } else {
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            }
         }
     }
+    
+    
+    
 }

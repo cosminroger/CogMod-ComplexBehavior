@@ -15,14 +15,15 @@ class RPS {
     
     }
     
-    func compareChoices(with playerChoice: Int, and modelChoice: Int) {
+    func compareChoices(with playerChoice: Int, and modelChoice: Int) -> Int{
         if playerChoice == modelChoice {
-            print(0)
+            return 0
         } else if playerChoice == modelChoice-1 || (playerChoice == 2 && modelChoice == 0) {
-            print("point for model")
+            return 1
         } else {
-            print("yay we win")
+            return 2
         }
+
     }
     
     func resetGame(){
