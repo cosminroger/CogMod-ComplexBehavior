@@ -27,8 +27,8 @@ class RPS {
     }
     
     func resetGame(){
-        for index in choices.indices {
-            choices[index].isChosen = false
+        for index in self.choices.indices {
+            self.choices[index].isChosen = false
         }
     }
     

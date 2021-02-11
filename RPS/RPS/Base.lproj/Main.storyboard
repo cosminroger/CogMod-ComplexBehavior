@@ -54,6 +54,15 @@
                                     <action selector="makeChoice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Vz-dd-qbh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t6-HS-pOZ">
+                                <rect key="frame" x="104" y="533" width="207" height="109"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -61,6 +70,7 @@
                     <connections>
                         <outlet property="modelScoreLabel" destination="YLr-eB-tjh" id="sOP-lK-lFS"/>
                         <outlet property="playerScoreLabel" destination="R5B-g9-uUf" id="4vP-T1-KWR"/>
+                        <outlet property="winnerLabel" destination="7t6-HS-pOZ" id="neu-Kc-fQl"/>
                         <outletCollection property="choiceButtons" destination="m2E-Vy-qeg" collectionClass="NSMutableArray" id="jE1-Av-lJ2"/>
                         <outletCollection property="choiceButtons" destination="DdB-Gs-Ejq" collectionClass="NSMutableArray" id="oe7-or-gG0"/>
                         <outletCollection property="choiceButtons" destination="Rqo-aC-pbk" collectionClass="NSMutableArray" id="ywa-BC-Zvh"/>
@@ -72,6 +82,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

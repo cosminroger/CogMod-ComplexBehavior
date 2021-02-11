@@ -23,13 +23,20 @@ class ViewController: UIViewController {
         }
     }
     
+    var winner = "" {
+        didSet{
+            winnerLabel.text = "\(winner)"
+        }
+    }
+    
     @IBOutlet var playerScoreLabel: UILabel!
     
     @IBOutlet var modelScoreLabel: UILabel!
     
     @IBOutlet var choiceButtons: [UIButton]!
     
-            
+    @IBOutlet var winnerLabel: UILabel!
+    
     @IBAction func makeChoice(_ sender: UIButton) {
         let choiceOption = choiceButtons.firstIndex(of: sender)!
         let modelOption = 0
@@ -38,8 +45,13 @@ class ViewController: UIViewController {
         let result = game.compareChoices(with: choiceOption, and: modelOption)
         if result == 1 {
             modelScore += 1
+            winner = "You lose!"
+            
         } else if result == 2 {
             playerScore += 1
+            winner = "You win!"
+        } else{
+            winner = "Draw!"
         }
         game.resetGame()
         updateView()
