@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D58C44125DF3AFA009A913F /* memoar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D58C44025DF3AFA009A913F /* memoar.swift */; };
 		4DDD62A625DD201200656937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62A525DD201200656937 /* AppDelegate.swift */; };
 		4DDD62A825DD201200656937 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62A725DD201200656937 /* SceneDelegate.swift */; };
 		4DDD62AA25DD201200656937 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62A925DD201200656937 /* ViewController.swift */; };
@@ -16,7 +17,6 @@
 		4DDD62BD25DD201E00656937 /* MemoarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62BC25DD201E00656937 /* MemoarTests.swift */; };
 		4DDD62C825DD201E00656937 /* MemoarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62C725DD201E00656937 /* MemoarUITests.swift */; };
 		4DDD62D925DD220E00656937 /* ACT-R in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD62D825DD220E00656937 /* ACT-R */; };
-		4DDD62DE25DD226600656937 /* memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62DD25DD226600656937 /* memory.swift */; };
 		4DDD62E325DD229F00656937 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62E225DD229F00656937 /* Card.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D58C44025DF3AFA009A913F /* memoar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memoar.swift; sourceTree = SOURCE_ROOT; };
 		4DDD62A225DD201200656937 /* Memoar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memoar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDD62A525DD201200656937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DDD62A725DD201200656937 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		4DDD62C725DD201E00656937 /* MemoarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoarUITests.swift; sourceTree = "<group>"; };
 		4DDD62C925DD201E00656937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DDD62D825DD220E00656937 /* ACT-R */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ACT-R"; sourceTree = "<group>"; };
-		4DDD62DD25DD226600656937 /* memory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memory.swift; sourceTree = SOURCE_ROOT; };
 		4DDD62E225DD229F00656937 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -106,11 +106,11 @@
 			isa = PBXGroup;
 			children = (
 				4DDD62E225DD229F00656937 /* Card.swift */,
-				4DDD62DD25DD226600656937 /* memory.swift */,
 				4DDD62D825DD220E00656937 /* ACT-R */,
 				4DDD62A525DD201200656937 /* AppDelegate.swift */,
 				4DDD62A725DD201200656937 /* SceneDelegate.swift */,
 				4DDD62A925DD201200656937 /* ViewController.swift */,
+				4D58C44025DF3AFA009A913F /* memoar.swift */,
 				4DDD62AB25DD201200656937 /* Main.storyboard */,
 				4DDD62AE25DD201D00656937 /* Assets.xcassets */,
 				4DDD62B025DD201D00656937 /* LaunchScreen.storyboard */,
@@ -268,10 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDD62DE25DD226600656937 /* memory.swift in Sources */,
 				4DDD62AA25DD201200656937 /* ViewController.swift in Sources */,
 				4DDD62E325DD229F00656937 /* Card.swift in Sources */,
 				4DDD62A625DD201200656937 /* AppDelegate.swift in Sources */,
+				4D58C44125DF3AFA009A913F /* memoar.swift in Sources */,
 				4DDD62A825DD201200656937 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

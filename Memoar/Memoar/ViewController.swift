@@ -9,12 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    lazy var game: Memoar = Memoar(NrOfPairs: (cardButtons.count + 1)/2)
+    lazy var game: Memoar = Memoar(NrOfCards:cardButtons.count)
     
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
         let cardNr = cardButtons.firstIndex(of: sender)!
+        print(cardNr)
         game.chooseCard(at: cardNr)
         updateView()
     }
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
     }
     var emojiChoices = ["🐱","🐹","🐵","🐸","🐷","🐮"]
     func emoji(for card: Card) -> String {
-        return "?"
+        return emojiChoices[Int(card.identifier/4)]
     }
 }
 

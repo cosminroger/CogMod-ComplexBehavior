@@ -19,10 +19,9 @@ class Memoar {
         }
     }
     
-    init(NrOfPairs: Int) {
-        for _ in 1...NrOfPairs {
+    init(NrOfCards: Int) {
+        for _ in 1...NrOfCards {
             let card = Card()
-            cards.append(card)
             cards.append(card)
         }
         //TODO: Shuffle cards
