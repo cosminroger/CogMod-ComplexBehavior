@@ -9,7 +9,8 @@ import Foundation
 
 struct Card {
     var isFaceUp = false
-    var isMatched = false
+    var background: String
+    var animal: String
     var identifier: Int
     
     static var identifierFactory = 0
@@ -17,7 +18,9 @@ struct Card {
         identifierFactory += 1
         return identifierFactory
     }
-    init() {
+    init(Background: String, Animal: String) {
         self.identifier = Card.getUniqIdentifier()
+        self.background = Background
+        self.animal = Animal
     }
 }

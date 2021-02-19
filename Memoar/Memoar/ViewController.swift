@@ -29,13 +29,12 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
                 button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0): #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+                button.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
             }
         }
     }
-    var emojiChoices = ["🐱","🐹","🐵","🐸","🐷","🐮"]
     func emoji(for card: Card) -> String {
-        return emojiChoices[Int(card.identifier/4)]
+        return "?"
     }
 }
 

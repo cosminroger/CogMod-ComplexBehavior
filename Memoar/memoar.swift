@@ -17,13 +17,18 @@ class Memoar {
         } else {
             cards[index].isFaceUp = true
         }
+        print(cards[index].animal, cards[index].background)
     }
     
     init(NrOfCards: Int) {
-        for _ in 1...NrOfCards {
-            let card = Card()
+        let animals = ["Seal", "Penguin", "Squid", "Crab", "Turtle", "Seal", "Penguin", "Squid", "Crab", "Turtle", "Seal", "Penguin", "Squid", "Crab", "Turtle", "Seal", "Penguin", "Squid", "Crab", "Turtle", "Seal", "Penguin", "Squid", "Crab", "Turtle"].shuffled()
+        let backgrounds = ["Blue", "Purple", "Yellow", "Green", "Red","Blue", "Purple", "Yellow", "Green", "Red","Blue", "Purple", "Yellow", "Green", "Red","Blue", "Purple", "Yellow", "Green", "Red","Blue", "Purple", "Yellow", "Green", "Red"].shuffled()
+        for identifier in 0...NrOfCards-2 {
+            let card = Card(Background: backgrounds[identifier], Animal: animals[identifier])
             cards.append(card)
         }
+        let card = Card(Background: "Volcano", Animal: "3")
+        cards.append(card)
         //TODO: Shuffle cards
     }
 }
