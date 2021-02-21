@@ -17,7 +17,9 @@ class ViewController: UIViewController {
         let cardNr = cardButtons.firstIndex(of: sender)!
         print(cardNr)
         game.chooseCard(at: cardNr)
-        updateView()
+        if cardNr < 24 {
+            updateView()
+        }
     }
     
     func updateView() {
@@ -25,16 +27,11 @@ class ViewController: UIViewController {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                button.setBackgroundImage(UIImage(named: "\(card.animal)\(card.background)"), for: UIControl.State.normal)
             } else {
-                button.setTitle("", for: UIControl.State.normal)
-                button.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                button.setBackgroundImage(UIImage(named: "back"), for: UIControl.State.normal)
             }
         }
-    }
-    func emoji(for card: Card) -> String {
-        return "?"
     }
 }
 
