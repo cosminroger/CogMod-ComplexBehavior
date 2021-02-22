@@ -27,9 +27,11 @@ class ViewController: UIViewController {
             let button = cardButtons[index]
             let card = game.cards[index]
             if card.isFaceUp {
-                button.setBackgroundImage(UIImage(named: "\(card.animal)\(card.background)"), for: UIControl.State.normal)
+                button.setImage(UIImage(named: "\(card.animal)\(card.background)"), for: .normal)
+                UIView.transition(with: button, duration: 0.25, options: .transitionFlipFromLeft, animations: nil, completion: nil)
             } else {
-                button.setBackgroundImage(UIImage(named: "back"), for: UIControl.State.normal)
+                button.setImage(UIImage(named: "back"), for: .normal)
+                UIView.transition(with: button, duration: 0.25, options: .transitionFlipFromRight, animations: nil, completion: nil)
             }
         }
     }
