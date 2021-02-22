@@ -18,21 +18,19 @@ class ViewController: UIViewController {
         print(cardNr)
         game.chooseCard(at: cardNr)
         if cardNr < 24 {
-            updateView()
+            updateView(at: cardNr)
         }
     }
     
-    func updateView() {
-        for index in cardButtons.indices{
-            let button = cardButtons[index]
-            let card = game.cards[index]
-            if card.isFaceUp {
-                button.setImage(UIImage(named: "\(card.animal)\(card.background)"), for: .normal)
-                UIView.transition(with: button, duration: 0.25, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-            } else {
-                button.setImage(UIImage(named: "back"), for: .normal)
-                UIView.transition(with: button, duration: 0.25, options: .transitionFlipFromRight, animations: nil, completion: nil)
-            }
+    func updateView(at index: Int) {
+        let button = cardButtons[index]
+        let card = game.cards[index]
+        if card.isFaceUp {
+            button.setImage(UIImage(named: "\(card.animal)\(card.background)"), for: .normal)
+            UIView.transition(with: button, duration: 0.25, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        } else {
+            button.setImage(UIImage(named: "back"), for: .normal)
+            UIView.transition(with: button, duration: 0.25, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
     }
 }
