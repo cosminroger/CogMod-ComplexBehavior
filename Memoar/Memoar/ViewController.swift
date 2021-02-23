@@ -15,10 +15,19 @@ class ViewController: UIViewController {
     
     @IBAction func touchCard(_ sender: UIButton) {
         let cardNr = cardButtons.firstIndex(of: sender)!
-        print(cardNr)
         game.chooseCard(at: cardNr)
         if cardNr < 24 {
             updateView(at: cardNr)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        for button in self.cardButtons {
+            button.layer.shadowRadius = 5
+            button.layer.shadowOpacity = 1
+            button.layer.shadowOffset = CGSize(width: 4, height: 7)
         }
     }
     

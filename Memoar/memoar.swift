@@ -17,7 +17,6 @@ class Memoar {
         } else {
             cards[index].isFaceUp = true
         }
-        print(cards[index].animal, cards[index].background)
     }
     
     init(NrOfCards: Int) {
@@ -30,6 +29,5 @@ class Memoar {
         }
         let card = Card(Background: "0", Animal: "Volcano")
         cards.append(card)
-        //TODO: Shuffle cards
     }
 }
