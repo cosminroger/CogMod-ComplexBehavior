@@ -10,12 +10,18 @@ import Foundation
 class Memoar {
     
     var cards = [Card]()
+    var turn = 0
+    var closedCards = [Int]()
     
     func chooseCard(at index: Int) {
-        if cards[index].isFaceUp{
-            cards[index].isFaceUp = false
-        } else {
+        if cards[index].isFaceUp == false{
             cards[index].isFaceUp = true
+        }
+    }
+    
+    func resetRound() {
+        for index in cards.indices {
+            cards[index].isFaceUp = false
         }
     }
     
@@ -26,6 +32,7 @@ class Memoar {
             let comb = combs.removeFirst()
             let card = Card(Background: comb.1, Animal: comb.0)
             cards.append(card)
+            closedCards.append(card.identifier)
         }
         let card = Card(Background: "0", Animal: "Volcano")
         cards.append(card)

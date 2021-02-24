@@ -14,10 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
-        let cardNr = cardButtons.firstIndex(of: sender)!
-        game.chooseCard(at: cardNr)
-        if cardNr < 24 {
-            updateView(at: cardNr)
+        if game.turn == 0 {
+            let cardNr = cardButtons.firstIndex(of: sender)!
+            flipCard(at: cardNr)
+            game.turn+=1
+            for _ in 0...2 {
+                sleep(1)
+                if let model_choice = game.closedCards.randomElement() {
+                    flipCard(at: model_choice)
+                } else {
+                    print("all cards turned")
+                }
+                game.turn += 1
+            }
+            game.turn = 0
         }
     }
     
@@ -31,6 +41,15 @@ class ViewController: UIViewController {
         }
     }
     
+    func flipCard(at cardNr: Int) {
+        game.chooseCard(at: cardNr)
+        if cardNr < 24 {
+            updateView(at: cardNr)
+        } else {
+            nextRound()
+        }
+    }
+    
     func updateView(at index: Int) {
         let button = cardButtons[index]
         let card = game.cards[index]
@@ -38,6 +57,15 @@ class ViewController: UIViewController {
             button.setImage(UIImage(named: "\(card.animal)\(card.background)"), for: .normal)
             UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
         } else {
+            button.setImage(UIImage(named: "back"), for: .normal)
+            UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        }
+    }
+    
+    func nextRound() {
+        game.resetRound()
+        for index in cardButtons.indices{
+            let button = cardButtons[index]
             button.setImage(UIImage(named: "back"), for: .normal)
             UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
