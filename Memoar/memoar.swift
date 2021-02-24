@@ -16,12 +16,16 @@ class Memoar {
     func chooseCard(at index: Int) {
         if cards[index].isFaceUp == false{
             cards[index].isFaceUp = true
-            closedCards.remove(at: index)
+            let position = closedCards.firstIndex(of: index)!
+            closedCards.remove(at: position)
+            print(index, closedCards)
         }
     }
     
     func resetRound() {
-        for index in cards.indices {
+        closedCards.removeAll()
+        for index in 0...23 {
+            closedCards.append(index)
             cards[index].isFaceUp = false
         }
     }

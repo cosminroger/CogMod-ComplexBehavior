@@ -13,7 +13,7 @@ struct Card {
     var animal: String
     var identifier: Int
     
-    static var identifierFactory = 0
+    static var identifierFactory = -1
     static func getUniqIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory

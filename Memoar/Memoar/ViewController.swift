@@ -16,25 +16,27 @@ class ViewController: UIViewController {
     @IBAction func touchCard(_ sender: UIButton) {
         if game.turn == 0 {
             let cardNr = cardButtons.firstIndex(of: sender)!
-            flipCard(at: cardNr)
-            if cardNr < 24 {
-                game.turn+=1
-                for _ in 0...2 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                        if let model_choice = self.game.closedCards.randomElement() {
-                            self.flipCard(at: model_choice)
+            let button = cardButtons[cardNr]
+            if button.currentImage == UIImage(named: "back") {
+                updateView(at: cardNr)
+                flipCard(at: cardNr)
+                if cardNr < 24 {
+                    for _ in 0...2 {
+                        game.turn+=1
+                        if let model_choice =
+                            game.closedCards.randomElement() {
+                            flipCard(at: model_choice)
                         } else {
                             print("all cards turned")
                         }
-                        self.game.turn += 1
-                    })
-                    
+                        game.turn += 1
+                    }
+                    game.turn = 0
                 }
-                game.turn = 0
             }
         }
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,8 +48,9 @@ class ViewController: UIViewController {
     }
     
     func flipCard(at cardNr: Int) {
-        game.chooseCard(at: cardNr)
+        print(cardNr)
         if cardNr < 24 {
+            game.chooseCard(at: cardNr)
             updateView(at: cardNr)
         } else {
             nextRound()
@@ -60,9 +63,6 @@ class ViewController: UIViewController {
         if card.isFaceUp {
             button.setImage(UIImage(named: "\(card.animal)\(card.background)"), for: .normal)
             UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
-        } else {
-            button.setImage(UIImage(named: "back"), for: .normal)
-            UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
     }
     
