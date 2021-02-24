@@ -17,17 +17,21 @@ class ViewController: UIViewController {
         if game.turn == 0 {
             let cardNr = cardButtons.firstIndex(of: sender)!
             flipCard(at: cardNr)
-            game.turn+=1
-            for _ in 0...2 {
-                sleep(1)
-                if let model_choice = game.closedCards.randomElement() {
-                    flipCard(at: model_choice)
-                } else {
-                    print("all cards turned")
+            if cardNr < 24 {
+                game.turn+=1
+                for _ in 0...2 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
+                        if let model_choice = self.game.closedCards.randomElement() {
+                            self.flipCard(at: model_choice)
+                        } else {
+                            print("all cards turned")
+                        }
+                        self.game.turn += 1
+                    })
+                    
                 }
-                game.turn += 1
+                game.turn = 0
             }
-            game.turn = 0
         }
     }
     

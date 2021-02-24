@@ -16,6 +16,7 @@ class Memoar {
     func chooseCard(at index: Int) {
         if cards[index].isFaceUp == false{
             cards[index].isFaceUp = true
+            closedCards.remove(at: index)
         }
     }
     
