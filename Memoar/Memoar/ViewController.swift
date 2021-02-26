@@ -20,18 +20,46 @@ class ViewController: UIViewController {
             if button.currentImage == UIImage(named: "back") {
                 updateView(at: cardNr)
                 flipCard(at: cardNr)
-                if cardNr < 24 {
-                    for _ in 0...2 {
-                        game.turn+=1
-                        if let model_choice =
-                            game.closedCards.randomElement() {
-                            flipCard(at: model_choice)
-                        } else {
-                            print("all cards turned")
+                if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
+                    if cardNr < 24 {
+                        for player in game.players {
+                            game.turn+=1
+                            if let model_choice =
+                                game.closedCards.randomElement() {
+                                flipCard(at: model_choice)
+                                game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
+                            } else {
+                                print("all cards turned")
+                                nextRound()
+                            }
                         }
-                        game.turn += 1
+                        game.turn = 0
+                        if game.players.count == 0 {
+                            print("you won!")
+                            nextRound()
+                        } else if game.closedCards.count == 0{
+                            print("No more cards to pick :(")
+                            nextRound()
+                        }
                     }
-                    game.turn = 0
+                } else {
+                    while game.closedCards.count > 0 {
+                        if game.players.count < 2 {
+                            print("\(game.players[0]) wins")
+                            break
+                        }
+                        for player in game.players {
+                            if let model_choice =
+                                game.closedCards.randomElement() {
+                                flipCard(at: model_choice)
+                                game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
+                            } else {
+                                break
+                            }
+                        }
+                    }
+                    print("End of round.")
+                    nextRound()
                 }
             }
         }
