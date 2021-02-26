@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    lazy var game: Memoar = Memoar(NrOfCards:cardButtons.count)
+    lazy var game: Memoar = Memoar()
     
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -21,34 +21,32 @@ class ViewController: UIViewController {
                 updateView(at: cardNr)
                 flipCard(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
-                    if cardNr < 24 {
-                        for player in game.players {
-                            game.turn+=1
-                            if let model_choice =
-                                game.closedCards.randomElement() {
-                                flipCard(at: model_choice)
-                                game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
-                            } else {
-                                print("all cards turned")
-                                nextRound()
-                            }
-                        }
-                        game.turn = 0
-                        if game.players.count == 0 {
-                            print("you won!")
-                            nextRound()
-                        } else if game.closedCards.count == 0{
-                            print("No more cards to pick :(")
+                    for player in game.players {
+                        game.turn+=1
+                        if let model_choice =
+                            game.closedCards.randomElement() {
+                            flipCard(at: model_choice)
+                            game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
+                        } else {
+                            print("all cards turned")
                             nextRound()
                         }
                     }
+                    game.turn = 0
+                    if game.players.count == 0 {
+                        print("you won!")
+                        nextRound()
+                    } else if game.closedCards.count == 0{
+                        print("No more cards to pick :(")
+                        nextRound()
+                    }
                 } else {
                     while game.closedCards.count > 0 {
-                        if game.players.count < 2 {
-                            print("\(game.players[0]) wins")
-                            break
-                        }
                         for player in game.players {
+                            if game.players.count < 2 {
+                                print("\(game.players[0]) wins")
+                                break
+                            }
                             if let model_choice =
                                 game.closedCards.randomElement() {
                                 flipCard(at: model_choice)
@@ -77,12 +75,8 @@ class ViewController: UIViewController {
     
     func flipCard(at cardNr: Int) {
         print(cardNr)
-        if cardNr < 24 {
-            game.chooseCard(at: cardNr)
-            updateView(at: cardNr)
-        } else {
-            nextRound()
-        }
+        game.chooseCard(at: cardNr)
+        updateView(at: cardNr)
     }
     
     func updateView(at index: Int) {

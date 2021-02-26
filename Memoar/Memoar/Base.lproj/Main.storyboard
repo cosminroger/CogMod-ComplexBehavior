@@ -146,15 +146,6 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GYF-wG-MHs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdC-ac-klY">
-                                <rect key="frame" x="549" y="369" width="82" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="labelColor"/>
-                                <state key="normal" image="back"/>
-                                <connections>
-                                    <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bzg-4z-T9Z"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYl-ql-A6H">
                                 <rect key="frame" x="641" y="465" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -275,7 +266,6 @@
                         <outletCollection property="cardButtons" destination="UR1-eI-rj6" collectionClass="NSMutableArray" id="LRN-SR-eFz"/>
                         <outletCollection property="cardButtons" destination="oBD-0S-EnW" collectionClass="NSMutableArray" id="Z9Z-ku-Ako"/>
                         <outletCollection property="cardButtons" destination="KUA-Ts-dl3" collectionClass="NSMutableArray" id="8t1-CH-mhn"/>
-                        <outletCollection property="cardButtons" destination="IdC-ac-klY" collectionClass="NSMutableArray" id="hTy-ah-pUp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -286,9 +276,6 @@
     <resources>
         <image name="back" width="1000" height="1000"/>
         <image name="background" width="400" height="250"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
