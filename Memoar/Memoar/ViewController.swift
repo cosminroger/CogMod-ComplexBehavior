@@ -18,8 +18,8 @@ class ViewController: UIViewController {
             let cardNr = cardButtons.firstIndex(of: sender)!
             let button = cardButtons[cardNr]
             if button.currentImage == UIImage(named: "back") {
-                updateView(at: cardNr)
                 flipCard(at: cardNr)
+                updateView(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
                     for player in game.players {
                         game.turn+=1
@@ -28,8 +28,7 @@ class ViewController: UIViewController {
                             flipCard(at: model_choice)
                             game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
                         } else {
-                            print("all cards turned")
-                            nextRound()
+                            game.players.remove(at: game.players.firstIndex(of: player)!)
                         }
                     }
                     game.turn = 0
@@ -37,14 +36,20 @@ class ViewController: UIViewController {
                         print("you won!")
                         nextRound()
                     } else if game.closedCards.count == 0{
-                        print("No more cards to pick :(")
+                        if let final_player = game.players.last {
+                            print("End of round, player \(final_player) wins!")
+                        } else {
+                            print("End of round, player you win!")
+                        }
                         nextRound()
                     }
                 } else {
                     while game.closedCards.count > 0 {
+                        if game.players.count < 2 {
+                            break
+                        }
                         for player in game.players {
                             if game.players.count < 2 {
-                                print("\(game.players[0]) wins")
                                 break
                             }
                             if let model_choice =
@@ -52,17 +57,17 @@ class ViewController: UIViewController {
                                 flipCard(at: model_choice)
                                 game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
                             } else {
-                                break
+                                game.players.remove(at: game.players.firstIndex(of: player)!)
                             }
                         }
                     }
-                    print("End of round.")
+                    print("End of round. player \(game.players[0]) wins")
                     nextRound()
                 }
             }
         }
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

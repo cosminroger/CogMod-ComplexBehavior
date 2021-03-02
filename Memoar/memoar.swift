@@ -39,7 +39,7 @@ class Memoar {
     func matchingCard(card1: Card, card2: Int, player: Int) -> Bool {
         lastCard = cards[card2]
         if card1.animal == lastCard.animal || card1.background == lastCard.background || card1.animal == "" {
-            print("yay:\(lastCard) is a match!")
+            //print("yay:\(lastCard) is a match!")
             return true
         }
         if player > 0 {
