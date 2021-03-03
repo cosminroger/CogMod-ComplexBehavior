@@ -14,6 +14,8 @@ class Memoar {
     var players = [1,2,3]
     var closedCards = [Int]()
     var lastCard = Card(Background: "", Animal: "")
+    var vulcanos = [1,2,3]
+    var treasures = [1,1,2,2,2,3,4]
     
     func chooseCard(at index: Int) {
         print(index)
@@ -58,5 +60,8 @@ class Memoar {
             cards.append(card)
             closedCards.append(pos)
         }
+        
+        vulcanos.shuffle()
+        treasures.shuffle()
     }
 }

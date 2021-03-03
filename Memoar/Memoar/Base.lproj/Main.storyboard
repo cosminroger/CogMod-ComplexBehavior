@@ -236,6 +236,34 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0HR-fF-hhG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC6-Jt-OK4" userLabel="Pile button">
+                                <rect key="frame" x="118" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-Gp-5Wf" userLabel="Pile button">
+                                <rect key="frame" x="923" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-gZ-4fU" userLabel="Pile button">
+                                <rect key="frame" x="733" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOY-Th-tYf" userLabel="Pile button">
+                                <rect key="frame" x="571" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-wu-xeH" userLabel="Pile button">
+                                <rect key="frame" x="457" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dp-kX-afU" userLabel="Pile button">
+                                <rect key="frame" x="342" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H89-eJ-NQC" userLabel="Pile button">
+                                <rect key="frame" x="208" y="693" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -266,6 +294,13 @@
                         <outletCollection property="cardButtons" destination="UR1-eI-rj6" collectionClass="NSMutableArray" id="LRN-SR-eFz"/>
                         <outletCollection property="cardButtons" destination="oBD-0S-EnW" collectionClass="NSMutableArray" id="Z9Z-ku-Ako"/>
                         <outletCollection property="cardButtons" destination="KUA-Ts-dl3" collectionClass="NSMutableArray" id="8t1-CH-mhn"/>
+                        <outletCollection property="pileButtons" destination="SC6-Jt-OK4" collectionClass="NSMutableArray" id="VhP-SG-nLj"/>
+                        <outletCollection property="pileButtons" destination="H89-eJ-NQC" collectionClass="NSMutableArray" id="F52-3d-NVy"/>
+                        <outletCollection property="pileButtons" destination="3dp-kX-afU" collectionClass="NSMutableArray" id="L0A-UR-ycD"/>
+                        <outletCollection property="pileButtons" destination="Axu-wu-xeH" collectionClass="NSMutableArray" id="xkU-8m-m8B"/>
+                        <outletCollection property="pileButtons" destination="fOY-Th-tYf" collectionClass="NSMutableArray" id="d9n-mX-cff"/>
+                        <outletCollection property="pileButtons" destination="hsz-gZ-4fU" collectionClass="NSMutableArray" id="Va5-oo-2Fc"/>
+                        <outletCollection property="pileButtons" destination="aAW-Gp-5Wf" collectionClass="NSMutableArray" id="bBg-PR-fdH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]!
     
+    @IBOutlet var pileButtons: [UIButton]!
+    
     @IBAction func touchCard(_ sender: UIButton) {
         if game.turn == 0 {
             let cardNr = cardButtons.firstIndex(of: sender)!
@@ -26,7 +28,13 @@ class ViewController: UIViewController {
                         if let model_choice =
                             game.closedCards.randomElement() {
                             flipCard(at: model_choice)
-                            game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
+                            if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
+                                let vulcano = 3-self.game.players.count
+                                let x_change = 100 * vulcano
+                                UIView.animate(withDuration:2, animations: {
+                                    self.pileButtons[vulcano].frame.origin.y-=300;
+                                    self.pileButtons[vulcano].frame.origin.x-=CGFloat(x_change)})
+                            }
                         } else {
                             game.players.remove(at: game.players.firstIndex(of: player)!)
                         }
@@ -55,7 +63,10 @@ class ViewController: UIViewController {
                             if let model_choice =
                                 game.closedCards.randomElement() {
                                 flipCard(at: model_choice)
-                                game.matchingCard(card1: game.lastCard, card2: model_choice, player: player)
+                                if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
+                                    UIView.animate(withDuration:2, animations: {self.pileButtons[3-self.game.players.count].frame.origin.y-=300})
+                                    
+                                }
                             } else {
                                 game.players.remove(at: game.players.firstIndex(of: player)!)
                             }
@@ -70,7 +81,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        for index in pileButtons.indices{
+            print(index)
+            print(game.vulcanos)
+            if index < 3 {
+                pileButtons[index].setImage(UIImage(named: "vulcano\(game.vulcanos[index])"), for: .normal)
+            } else {
+                let treasure = game.treasures.remove(at: 0)
+                pileButtons[index].setImage(UIImage(named: "Treasure\(treasure)"), for: .normal)
+            }
+        }
         for button in self.cardButtons {
             button.layer.shadowRadius = 5
             button.layer.shadowOpacity = 1
