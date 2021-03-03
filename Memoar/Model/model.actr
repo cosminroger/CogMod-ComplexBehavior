@@ -17,6 +17,8 @@
     =goal>
         isa checkCards
         state wait
+    +action>
+        isa ready
 )
 
 (p rememberCard
@@ -43,7 +45,7 @@
         isa checkCards
         state wait
     +action>
-        isa cardRemembered
+        isa cardMemorized
 )
 
 (p flipACard
