@@ -11,6 +11,9 @@ class Memoar {
     
     var cards = [Card]()
     var turn = 0
+    var failed_players = 0
+    var round = 0
+    var scores = [0,0,0,0]
     var players = [1,2,3]
     var closedCards = [Int]()
     var lastCard = Card(Background: "", Animal: "")
@@ -32,6 +35,7 @@ class Memoar {
         players = [1,2,3]
         closedCards.removeAll()
         lastCard = Card(Background: "", Animal: "")
+        vulcanos.shuffle()
         for index in 0...23 {
             closedCards.append(index)
             cards[index].isFaceUp = false
@@ -44,6 +48,7 @@ class Memoar {
             //print("yay:\(lastCard) is a match!")
             return true
         }
+        failed_players += 1
         if player > 0 {
             players.remove(at: players.firstIndex(of: player)!)
         }

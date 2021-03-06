@@ -29,11 +29,7 @@ class ViewController: UIViewController {
                             game.closedCards.randomElement() {
                             flipCard(at: model_choice)
                             if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
-                                let vulcano = 3-self.game.players.count
-                                let x_change = 100 * vulcano
-                                UIView.animate(withDuration:2, animations: {
-                                    self.pileButtons[vulcano].frame.origin.y-=300;
-                                    self.pileButtons[vulcano].frame.origin.x-=CGFloat(x_change)})
+                                draw_vulcano(player: player)
                             }
                         } else {
                             game.players.remove(at: game.players.firstIndex(of: player)!)
@@ -42,16 +38,20 @@ class ViewController: UIViewController {
                     game.turn = 0
                     if game.players.count == 0 {
                         print("you won!")
+                        draw_treasure(player: 0)
                         nextRound()
                     } else if game.closedCards.count == 0{
                         if let final_player = game.players.last {
                             print("End of round, player \(final_player) wins!")
+                            draw_treasure(player: final_player)
                         } else {
-                            print("End of round, player you win!")
+                            print("End of round, you win!")
+                            draw_treasure(player: 0)
                         }
                         nextRound()
                     }
                 } else {
+                    draw_vulcano(player: 0)
                     while game.closedCards.count > 0 {
                         if game.players.count < 2 {
                             break
@@ -64,15 +64,16 @@ class ViewController: UIViewController {
                                 game.closedCards.randomElement() {
                                 flipCard(at: model_choice)
                                 if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
-                                    UIView.animate(withDuration:2, animations: {self.pileButtons[3-self.game.players.count].frame.origin.y-=300})
-                                    
+                                   draw_vulcano(player: player)
                                 }
                             } else {
                                 game.players.remove(at: game.players.firstIndex(of: player)!)
+                                draw_vulcano(player: player)
                             }
                         }
                     }
                     print("End of round. player \(game.players[0]) wins")
+                    draw_treasure(player: game.players[0])
                     nextRound()
                 }
             }
@@ -87,7 +88,7 @@ class ViewController: UIViewController {
             if index < 3 {
                 pileButtons[index].setImage(UIImage(named: "vulcano\(game.vulcanos[index])"), for: .normal)
             } else {
-                let treasure = game.treasures.remove(at: 0)
+                let treasure = game.treasures[index - 3]
                 pileButtons[index].setImage(UIImage(named: "Treasure\(treasure)"), for: .normal)
             }
         }
@@ -96,6 +97,20 @@ class ViewController: UIViewController {
             button.layer.shadowOpacity = 1
             button.layer.shadowOffset = CGSize(width: 4, height: 7)
         }
+    }
+    
+    func draw_vulcano(player: Int) {
+        let vulcano = -1 + self.game.failed_players
+        let y_change = -300
+        let x_change = 100 * player + 82
+        UIView.animate(withDuration:2, animations: {self.pileButtons[vulcano].frame.origin.y-=CGFloat(y_change);self.pileButtons[vulcano].frame.origin.x-=CGFloat(x_change)})
+    }
+    
+    func draw_treasure(player: Int) {
+        let treasure = 2 + game.round
+        let y_change = -300
+        let x_change = 50 * game.round + 82
+        UIView.animate(withDuration:2, animations: {self.pileButtons[treasure].frame.origin.y-=CGFloat(y_change);self.pileButtons[treasure].frame.origin.x+=CGFloat(x_change)})
     }
     
     func flipCard(at cardNr: Int) {
@@ -120,6 +135,7 @@ class ViewController: UIViewController {
             button.setImage(UIImage(named: "back"), for: .normal)
             UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
+        // TODO: return vulcanos
     }
 }
 

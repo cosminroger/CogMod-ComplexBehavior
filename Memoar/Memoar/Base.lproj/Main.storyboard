@@ -236,32 +236,44 @@
                                     <action selector="touchCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0HR-fF-hhG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC6-Jt-OK4" userLabel="Pile button">
-                                <rect key="frame" x="118" y="693" width="82" height="82"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5X-d1-PnQ" userLabel="Pile button">
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sLh-Iz-870" userLabel="Pile button">
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzN-0T-V0z" userLabel="Pile button">
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-Gp-5Wf" userLabel="Pile button">
-                                <rect key="frame" x="923" y="693" width="82" height="82"/>
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-gZ-4fU" userLabel="Pile button">
-                                <rect key="frame" x="733" y="693" width="82" height="82"/>
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fOY-Th-tYf" userLabel="Pile button">
-                                <rect key="frame" x="571" y="693" width="82" height="82"/>
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-wu-xeH" userLabel="Pile button">
-                                <rect key="frame" x="457" y="693" width="82" height="82"/>
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dp-kX-afU" userLabel="Pile button">
-                                <rect key="frame" x="342" y="693" width="82" height="82"/>
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H89-eJ-NQC" userLabel="Pile button">
-                                <rect key="frame" x="208" y="693" width="82" height="82"/>
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SC6-Jt-OK4" userLabel="Pile button">
+                                <rect key="frame" x="549" y="369" width="82" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                         </subviews>
@@ -301,6 +313,9 @@
                         <outletCollection property="pileButtons" destination="fOY-Th-tYf" collectionClass="NSMutableArray" id="d9n-mX-cff"/>
                         <outletCollection property="pileButtons" destination="hsz-gZ-4fU" collectionClass="NSMutableArray" id="Va5-oo-2Fc"/>
                         <outletCollection property="pileButtons" destination="aAW-Gp-5Wf" collectionClass="NSMutableArray" id="bBg-PR-fdH"/>
+                        <outletCollection property="pileButtons" destination="nzN-0T-V0z" collectionClass="NSMutableArray" id="trM-x8-p3h"/>
+                        <outletCollection property="pileButtons" destination="sLh-Iz-870" collectionClass="NSMutableArray" id="2fq-43-9kL"/>
+                        <outletCollection property="pileButtons" destination="T5X-d1-PnQ" collectionClass="NSMutableArray" id="pFK-Ff-cqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
