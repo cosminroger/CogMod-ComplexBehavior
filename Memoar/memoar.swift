@@ -33,6 +33,7 @@ class Memoar {
     
     func resetRound() {
         players = [1,2,3]
+        failed_players = 0
         closedCards.removeAll()
         lastCard = Card(Background: "", Animal: "")
         vulcanos.shuffle()

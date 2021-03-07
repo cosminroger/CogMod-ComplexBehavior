@@ -100,6 +100,9 @@ class ViewController: UIViewController {
     }
     
     func draw_vulcano(player: Int) {
+        if player == 0 {
+            
+        }
         let vulcano = -1 + self.game.failed_players
         let y_change = -300
         let x_change = 100 * player + 82
