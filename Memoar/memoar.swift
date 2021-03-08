@@ -10,15 +10,17 @@ import Foundation
 class Memoar {
     
     var cards = [Card]()
-    var turn = 0
-    var failed_players = 0
-    var round = 0
-    var scores = [0,0,0,0]
-    var players = [1,2,3]
     var closedCards = [Int]()
+    var failed_players = 0
     var lastCard = Card(Background: "", Animal: "")
-    var vulcanos = [1,2,3]
+    var players = [1,2,3]
+    var round = 1
+    var scores = [0,0,0,0]
+    var turn = 0
     var treasures = [1,1,2,2,2,3,4]
+    var vulcanos = [1,2,3]
+    var x_changes = [641,257,457,841,733,257,365,841]
+    var y_changes = [669,465,69,273,669,561,69,177]
     
     func chooseCard(at index: Int) {
         print(index)
@@ -37,6 +39,7 @@ class Memoar {
         closedCards.removeAll()
         lastCard = Card(Background: "", Animal: "")
         vulcanos.shuffle()
+        round += 1
         for index in 0...23 {
             closedCards.append(index)
             cards[index].isFaceUp = false
