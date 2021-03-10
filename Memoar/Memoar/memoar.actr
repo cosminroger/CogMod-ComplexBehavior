@@ -38,8 +38,6 @@
     =goal>
         isa checkCards
         state remembering
-    =imaginal>
-        isa nil
 ==>
     =goal>
         isa checkCards
