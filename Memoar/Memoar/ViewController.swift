@@ -12,6 +12,15 @@ class ViewController: UIViewController {
     lazy var game: Memoar = Memoar()
     let model = memoarModel()
     
+    var turn = 0 {
+        willSet {
+            userIcons[turn].image = UIImage(named: "parrot\(turn+1)")
+        }
+        didSet {
+            userIcons[turn].image = UIImage(named: "parrot\(turn+1)_turn")
+        }
+    }
+    
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet var pileButtons: [UIButton]!
@@ -19,7 +28,7 @@ class ViewController: UIViewController {
     @IBOutlet var userIcons: [UIImageView]!
     
     @IBAction func touchCard(_ sender: UIButton) {
-        if game.turn == 0 {
+        if turn == 0 {
             let cardNr = cardButtons.firstIndex(of: sender)!
             let button = cardButtons[cardNr]
             
@@ -28,7 +37,7 @@ class ViewController: UIViewController {
                 updateView(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
                     for player in game.players {
-                        game.turn+=1
+                        turn+=1
                         if let model_choice =
                             game.closedCards.randomElement() {
                             flipCard(at: model_choice)
@@ -39,7 +48,7 @@ class ViewController: UIViewController {
                             game.players.remove(at: game.players.firstIndex(of: player)!)
                         }
                     }
-                    game.turn = 0
+                    turn = 0
                     if game.players.count == 0 {
                         print("you won!")
                         draw_treasure(player: 0)
