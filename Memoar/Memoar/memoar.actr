@@ -25,13 +25,13 @@
     =goal>
         isa checkCards
         state wait
-    =imaginal>
-        isa cardFlipped
+    =visual>
+      - isa nil
 ==>
     =goal>
         isa checkCards
         state remembering
-    -imaginal>
+    -visual>
 )
 
 (p cardRemembered

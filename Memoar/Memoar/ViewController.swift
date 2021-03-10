@@ -35,12 +35,18 @@ class ViewController: UIViewController {
             if button.currentImage == UIImage(named: "back") {
                 flipCard(at: cardNr)
                 updateView(at: cardNr)
+                
+                model.memorizeCard(cardNr: cardNr,animal: button.animal, background: button.background)
+                
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
                     for player in game.players {
                         turn+=1
                         if let model_choice =
                             game.closedCards.randomElement() {
                             flipCard(at: model_choice)
+                            
+                            model.memorizeCard(cardNo: model_choice ,animal: cardButtons[model_choice].animal,background: cardButtons[model_choice].background)
+                            
                             if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
                                 draw_vulcano(player: player)
                             }
