@@ -1,0 +1,68 @@
+;;; Model Memoar
+;;;
+
+(add-dm
+   (goal isa startGame state start)
+)
+
+(set-all-baselevels -100 10) ;; time offset and number of references
+
+;;; Randomly start with a decision
+
+(p decide-action
+    =goal>
+        isa startGame
+        state start
+==>
+    =goal>
+        isa checkCards
+        state wait
+    +action>
+        isa ready
+)
+
+(p rememberCard
+    =goal>
+        isa checkCards
+        state wait
+    =imaginal>
+        isa cardFlipped
+==>
+    =goal>
+        isa checkCards
+        state remembering
+    -imaginal>
+)
+
+(p cardRemembered
+    =goal>
+        isa checkCards
+        state remembering
+    =imaginal>
+        isa nil
+==>
+    =goal>
+        isa checkCards
+        state wait
+    +action>
+        isa cardMemorized
+)
+
+(p flipACard
+    =goal>
+        isa checkCards
+        state wait
+    =imaginal>
+        isa myTurn
+==>
+    =goal>
+        isa checkCards
+        state wait
+    +action>
+        isa flipRandom
+)
+
+;;; IT ENDS HERE
+
+(goal-focus goal)
+

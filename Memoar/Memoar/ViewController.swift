@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     lazy var game: Memoar = Memoar()
+    let model = memoarModel()
     
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -21,6 +22,7 @@ class ViewController: UIViewController {
         if game.turn == 0 {
             let cardNr = cardButtons.firstIndex(of: sender)!
             let button = cardButtons[cardNr]
+            
             if button.currentImage == UIImage(named: "back") {
                 flipCard(at: cardNr)
                 updateView(at: cardNr)
