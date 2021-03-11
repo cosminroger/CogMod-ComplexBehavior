@@ -19,7 +19,7 @@
 		4DDD62C825DD201E00656937 /* MemoarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62C725DD201E00656937 /* MemoarUITests.swift */; };
 		4DDD62D925DD220E00656937 /* ACT-R in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD62D825DD220E00656937 /* ACT-R */; };
 		4DDD62E325DD229F00656937 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62E225DD229F00656937 /* Card.swift */; };
-		E144A1D525F8CA7300C81A0F /* playerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1D425F8CA7300C81A0F /* playerType.swift */; };
+		E144A1D525F8CA7300C81A0F /* memoarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1D425F8CA7300C81A0F /* memoarModel.swift */; };
 		E144A1DA25F8CB7F00C81A0F /* memoar.actr in Resources */ = {isa = PBXBuildFile; fileRef = E144A1D925F8CB7F00C81A0F /* memoar.actr */; };
 		E144A1EF25F8CF2900C81A0F /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1DE25F8CF2800C81A0F /* Support.swift */; };
 		E144A1F025F8CF2900C81A0F /* BufferCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1DF25F8CF2800C81A0F /* BufferCondition.swift */; };
@@ -76,7 +76,7 @@
 		4DDD62C925DD201E00656937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DDD62D825DD220E00656937 /* ACT-R */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ACT-R"; sourceTree = "<group>"; };
 		4DDD62E225DD229F00656937 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = SOURCE_ROOT; };
-		E144A1D425F8CA7300C81A0F /* playerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerType.swift; sourceTree = "<group>"; };
+		E144A1D425F8CA7300C81A0F /* memoarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoarModel.swift; sourceTree = "<group>"; };
 		E144A1D925F8CB7F00C81A0F /* memoar.actr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memoar.actr; sourceTree = "<group>"; };
 		E144A1DE25F8CF2800C81A0F /* Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Support.swift; path = "ACT-R/Support.swift"; sourceTree = "<group>"; };
 		E144A1DF25F8CF2800C81A0F /* BufferCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BufferCondition.swift; path = "ACT-R/BufferCondition.swift"; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				4DDD62A525DD201200656937 /* AppDelegate.swift */,
 				4DDD62A725DD201200656937 /* SceneDelegate.swift */,
 				4DDD62A925DD201200656937 /* ViewController.swift */,
-				E144A1D425F8CA7300C81A0F /* playerType.swift */,
+				E144A1D425F8CA7300C81A0F /* memoarModel.swift */,
 				4D58C44025DF3AFA009A913F /* memoar.swift */,
 				4DDD62AB25DD201200656937 /* Main.storyboard */,
 				4D647A4825F533040011A666 /* MenuViewController.swift */,
@@ -337,7 +337,7 @@
 				4D647A4925F533040011A666 /* MenuViewController.swift in Sources */,
 				E144A1F725F8CF2900C81A0F /* Parser.swift in Sources */,
 				4DDD62E325DD229F00656937 /* Card.swift in Sources */,
-				E144A1D525F8CA7300C81A0F /* playerType.swift in Sources */,
+				E144A1D525F8CA7300C81A0F /* memoarModel.swift in Sources */,
 				E144A1F525F8CF2900C81A0F /* SlotCondition.swift in Sources */,
 				E144A1FD25F8CF2900C81A0F /* BufferAction.swift in Sources */,
 				E144A1F925F8CF2900C81A0F /* Model.swift in Sources */,

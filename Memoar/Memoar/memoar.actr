@@ -2,20 +2,16 @@
 ;;;
 
 (add-dm
-   (goal isa startGame state start)
+   (goal isa memoar state startGame)
 )
 
 (set-all-baselevels -100 10) ;; time offset and number of references
 
-;;; Randomly start with a decision
-
 (p decide-action
     =goal>
-        isa startGame
-        state start
+        state startGame
 ==>
     =goal>
-        isa checkCards
         state wait
     +action>
         isa ready
@@ -23,41 +19,114 @@
 
 (p rememberCard
     =goal>
-        isa checkCards
         state wait
     =visual>
-      - isa nil
+        isa memorize
 ==>
     =goal>
-        isa checkCards
-        state remembering
+        state memorizing
     -visual>
 )
 
 (p cardRemembered
     =goal>
-        isa checkCards
-        state remembering
+        state memorizing
 ==>
     =goal>
-        isa checkCards
         state wait
     +action>
         isa cardMemorized
 )
 
-(p flipACard
+(p checkCard
     =goal>
-        isa checkCards
         state wait
-    =imaginal>
+    =visual>
         isa myTurn
+        cardNo =cardNo
 ==>
     =goal>
-        isa checkCards
+        isa remembering
+    +retrieval>
+        cardNo =cardNo
+)
+
+(p retrFail
+    =goal>
+        state remembering
+    ?retrieval>
+        state error
+==>
+    =goal>
         state wait
     +action>
-        isa flipRandom
+        isa retrievalError
+)
+
+(p retrSuccess
+    =goal>
+        state remembering
+    =retrieval>
+        isa memorize
+        animal =animal
+        background =background
+==>
+    =goal>
+        state match
+    =imaginal>
+        an =animal
+        bg =background
+)
+
+(p matchAnimalFirst
+    =goal>
+        state match
+    =imaginal>
+      - an nil
+      - bg nil
+    =visual>
+      lastAnimal =an
+      - lastBackground =bg
+==>
+    =goal>
+        state wait
+    +action>
+        isa animalMatch
+    -retrieval>
+)
+
+(p matchAnimalFirst
+    =goal>
+        state match
+    =imaginal>
+      - an nil
+      - bg nil
+    =visual>
+      - lastAnimal =an
+      lastBackground =bg
+==>
+    =goal>
+        state wait
+    +action>
+        isa backgroundMatch
+    -retrieval>
+)
+
+
+(p noMatch
+    =goal>
+        state match
+    =imaginal>
+      - an nil
+      - bg nil
+    =visual>
+      - lastAnimal =an
+      - lastBackground =bg
+==>
+    =goal>
+        state wait
+    +action>
+        isa noMatch
 )
 
 ;;; IT ENDS HERE

@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     lazy var game: Memoar = Memoar()
-    let model = memoarModel()
+    var modelArray = [memoarModel(), memoarModel(), memoarModel(), memoarModel()]
     
     var turn = 0 {
         willSet {
@@ -34,22 +34,37 @@ class ViewController: UIViewController {
             
             if button.currentImage == UIImage(named: "back") {
                 flipCard(at: cardNr)
-                updateView(at: cardNr)
-                
-                model.memorizeCard(cardNr: cardNr,animal: button.animal, background: button.background)
                 
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
+                
                     for player in game.players {
                         turn+=1
-                        if let model_choice =
-                            game.closedCards.randomElement() {
-                            flipCard(at: model_choice)
+                        let model = modelArray[player]
+                        // Check all unflipped cards, after they are shuffled
+                        game.closedCards.shuffle()
+                        
+                        var answer = ""
+                        for card in game.closedCards {
+                            // cardNo is the number of the unflipped card
+                            // lastAnimal is the animal from the last flipped card
+                            // lastBackground is the background of the last flipped card
+                            answer = model.checkCard(cardNo: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
+                            print(answer)
                             
-                            model.memorizeCard(cardNo: model_choice ,animal: cardButtons[model_choice].animal,background: cardButtons[model_choice].background)
+                            if answer == "animalMatch" || answer == "backgroundMatch" {
+                                print("FOUND A CARD!!!")
+                                break
+                            }
+                        }
+                        
+                        // If there is any card to flip, then choose one
+                        if let model_choice = game.closedCards.randomElement() {
+                            flipCard(at: model_choice)
                             
                             if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
                                 draw_vulcano(player: player)
                             }
+                        // Else, draw a volcano (no cards are unflipped)
                         } else {
                             game.players.remove(at: game.players.firstIndex(of: player)!)
                         }
@@ -71,14 +86,21 @@ class ViewController: UIViewController {
                     }
                 } else {
                     draw_vulcano(player: 0)
+                    
+                    // For the model, when the player is out
+                    
                     while game.closedCards.count > 0 {
                         if game.players.count < 2 {
                             break
                         }
+                        
                         for player in game.players {
                             if game.players.count < 2 {
                                 break
                             }
+                            
+                            // For loop through all unflipped cards
+                            
                             if let model_choice =
                                 game.closedCards.randomElement() {
                                 flipCard(at: model_choice)
@@ -134,6 +156,13 @@ class ViewController: UIViewController {
     }
     
     func flipCard(at cardNr: Int) {
+        
+        for modelNo in 1..<4{
+            let model = modelArray[modelNo]
+            model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
+        }
+        
+        
         print(cardNr)
         game.chooseCard(at: cardNr)
         updateView(at: cardNr)
