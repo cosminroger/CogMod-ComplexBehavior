@@ -17,7 +17,6 @@
 		4DDD62B225DD201D00656937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD62B025DD201D00656937 /* LaunchScreen.storyboard */; };
 		4DDD62BD25DD201E00656937 /* MemoarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62BC25DD201E00656937 /* MemoarTests.swift */; };
 		4DDD62C825DD201E00656937 /* MemoarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62C725DD201E00656937 /* MemoarUITests.swift */; };
-		4DDD62D925DD220E00656937 /* ACT-R in Resources */ = {isa = PBXBuildFile; fileRef = 4DDD62D825DD220E00656937 /* ACT-R */; };
 		4DDD62E325DD229F00656937 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62E225DD229F00656937 /* Card.swift */; };
 		E144A1D525F8CA7300C81A0F /* memoarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1D425F8CA7300C81A0F /* memoarModel.swift */; };
 		E144A1DA25F8CB7F00C81A0F /* memoar.actr in Resources */ = {isa = PBXBuildFile; fileRef = E144A1D925F8CB7F00C81A0F /* memoar.actr */; };
@@ -74,7 +73,6 @@
 		4DDD62C325DD201E00656937 /* MemoarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDD62C725DD201E00656937 /* MemoarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoarUITests.swift; sourceTree = "<group>"; };
 		4DDD62C925DD201E00656937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4DDD62D825DD220E00656937 /* ACT-R */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "ACT-R"; sourceTree = "<group>"; };
 		4DDD62E225DD229F00656937 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = SOURCE_ROOT; };
 		E144A1D425F8CA7300C81A0F /* memoarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoarModel.swift; sourceTree = "<group>"; };
 		E144A1D925F8CB7F00C81A0F /* memoar.actr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memoar.actr; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				E144A1E325F8CF2800C81A0F /* Vision.swift */,
 				E144A1D925F8CB7F00C81A0F /* memoar.actr */,
 				4DDD62E225DD229F00656937 /* Card.swift */,
-				4DDD62D825DD220E00656937 /* ACT-R */,
 				4DDD62A525DD201200656937 /* AppDelegate.swift */,
 				4DDD62A725DD201200656937 /* SceneDelegate.swift */,
 				4DDD62A925DD201200656937 /* ViewController.swift */,
@@ -301,7 +298,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E144A1DA25F8CB7F00C81A0F /* memoar.actr in Resources */,
-				4DDD62D925DD220E00656937 /* ACT-R in Resources */,
 				4DDD62B225DD201D00656937 /* LaunchScreen.storyboard in Resources */,
 				4DDD62AF25DD201D00656937 /* Assets.xcassets in Resources */,
 				4DDD62AD25DD201200656937 /* Main.storyboard in Resources */,

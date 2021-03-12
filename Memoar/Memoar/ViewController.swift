@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     lazy var game: Memoar = Memoar()
-    var modelArray = [memoarModel(), memoarModel(), memoarModel(), memoarModel()]
+    var modelArray = [memoarModel(), memoarModel(), memoarModel()]
     
     var turn = 0 {
         willSet {
@@ -39,16 +39,16 @@ class ViewController: UIViewController {
                 
                     for player in game.players {
                         turn+=1
-                        let model = modelArray[player]
+                        let model = modelArray[player-1]
                         // Check all unflipped cards, after they are shuffled
                         game.closedCards.shuffle()
                         
                         var answer = ""
                         for card in game.closedCards {
-                            // cardNo is the number of the unflipped card
+                            // cardNr is the number of the unflipped card
                             // lastAnimal is the animal from the last flipped card
                             // lastBackground is the background of the last flipped card
-                            answer = model.checkCard(cardNo: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
+                            answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
                             print(answer)
                             
                             if answer == "animalMatch" || answer == "backgroundMatch" {
@@ -126,10 +126,12 @@ class ViewController: UIViewController {
         for index in pileButtons.indices{
             print(index)
             print(game.vulcanos)
+            print(game.treasures)
             if index < 3 {
                 pileButtons[index].setImage(UIImage(named: "vulcano\(game.vulcanos[index])"), for: .normal)
             } else {
                 let treasure = game.treasures[index - 3]
+                print("tr:",index,treasure)
                 pileButtons[index].setImage(UIImage(named: "Treasure\(treasure)"), for: .normal)
             }
         }
@@ -157,8 +159,8 @@ class ViewController: UIViewController {
     
     func flipCard(at cardNr: Int) {
         
-        for modelNo in 1..<4{
-            let model = modelArray[modelNo]
+        for player in game.players{
+            let model = modelArray[player-1]
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }
         
