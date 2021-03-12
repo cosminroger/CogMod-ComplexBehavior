@@ -21,6 +21,16 @@ class ViewController: UIViewController {
         }
     }
     
+    var scores = [0,0,0,0] {
+        didSet {
+            for i in scores.indices {
+                scoreLabels[i].text = "\(scores[i])"
+            }
+        }
+    }
+
+    @IBOutlet var scoreLabels: [UILabel]!
+    
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBOutlet var pileButtons: [UIButton]!
@@ -73,7 +83,6 @@ class ViewController: UIViewController {
                     if game.players.count == 0 {
                         print("you won!")
                         draw_treasure(player: 0)
-                        nextRound()
                     } else if game.closedCards.count == 0{
                         if let final_player = game.players.last {
                             print("End of round, player \(final_player) wins!")
@@ -82,7 +91,6 @@ class ViewController: UIViewController {
                             print("End of round, you win!")
                             draw_treasure(player: 0)
                         }
-                        nextRound()
                     }
                 } else {
                     draw_vulcano(player: 0)
@@ -115,7 +123,6 @@ class ViewController: UIViewController {
                     }
                     print("End of round. player \(game.players[0]) wins")
                     draw_treasure(player: game.players[0])
-                    nextRound()
                 }
             }
         }
@@ -146,7 +153,7 @@ class ViewController: UIViewController {
         let vulcano = -1 + self.game.failed_players
         let y_change = self.game.y_changes[player]
         let x_change = self.game.x_changes[player]
-        UIView.animate(withDuration:2, animations: {self.pileButtons[vulcano].frame.origin.y=CGFloat(y_change);self.pileButtons[vulcano].frame.origin.x=CGFloat(x_change)})
+        UIView.animate(withDuration:1, animations: {self.pileButtons[vulcano].frame.origin.y=CGFloat(y_change);self.pileButtons[vulcano].frame.origin.x=CGFloat(x_change)})
         print(self.pileButtons[vulcano].frame.origin)
     }
     
@@ -154,7 +161,11 @@ class ViewController: UIViewController {
         let treasure = 2 + game.round
         let y_change = self.game.y_changes[player+4]
         let x_change = self.game.x_changes[player+4]
-        UIView.animate(withDuration:2, animations: {self.pileButtons[treasure].frame.origin.y=CGFloat(y_change);self.pileButtons[treasure].frame.origin.x=CGFloat(x_change)})
+        UIView.animate(withDuration:1, animations: {self.pileButtons[treasure].frame.origin.y=CGFloat(y_change);self.pileButtons[treasure].frame.origin.x=CGFloat(x_change)},
+            completion: { _ in
+                self.scores[player] += self.game.treasures[self.game.round-1]
+                self.nextRound()
+            })
     }
     
     func flipCard(at cardNr: Int) {
