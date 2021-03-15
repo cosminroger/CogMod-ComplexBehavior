@@ -43,12 +43,12 @@
         state wait
     =visual>
         isa myTurn
-        cardNo =cardNo
+        cardNr =cardNr
 ==>
     =goal>
-        isa remembering
+        state remembering
     +retrieval>
-        cardNo =cardNo
+        cardNr =cardNr
 )
 
 (p retrFail
@@ -73,7 +73,6 @@
 ==>
     =goal>
         state match
-    =imaginal>
         an =animal
         bg =background
 )
@@ -81,15 +80,18 @@
 (p matchAnimalFirst
     =goal>
         state match
-    =imaginal>
       - an nil
       - bg nil
+        an =an
+        bg =bg
     =visual>
       lastAnimal =an
       - lastBackground =bg
 ==>
     =goal>
         state wait
+        an nil
+        bg nil
     +action>
         isa animalMatch
     -retrieval>
@@ -98,15 +100,18 @@
 (p matchAnimalFirst
     =goal>
         state match
-    =imaginal>
       - an nil
       - bg nil
+        an =an
+        bg =bg
     =visual>
       - lastAnimal =an
       lastBackground =bg
 ==>
     =goal>
         state wait
+        an nil
+        bg nil
     +action>
         isa backgroundMatch
     -retrieval>
@@ -116,15 +121,18 @@
 (p noMatch
     =goal>
         state match
-    =imaginal>
       - an nil
       - bg nil
+        an =an
+        bg =bg
     =visual>
       - lastAnimal =an
       - lastBackground =bg
 ==>
     =goal>
         state wait
+        an nil
+        bg nil
     +action>
         isa noMatch
 )

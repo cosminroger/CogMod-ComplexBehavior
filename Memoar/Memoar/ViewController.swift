@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                 
                     for player in game.players {
                         turn+=1
-                        let model = modelArray[player-1]
+                        var model = modelArray[player-1]
                         // Check all unflipped cards, after they are shuffled
                         game.closedCards.shuffle()
                         
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
                             // lastAnimal is the animal from the last flipped card
                             // lastBackground is the background of the last flipped card
                             answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
-                            print(answer)
+                            //print(answer)
                             
                             if answer == "animalMatch" || answer == "backgroundMatch" {
                                 print("FOUND A CARD!!!")

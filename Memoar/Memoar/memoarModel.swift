@@ -26,7 +26,7 @@ struct memoarModel {
         model.buffers["visual"] = chunk
         
         model.run()
-        print(model.lastAction(slot: "isa"))
+        //print(model.lastAction(slot: "isa"))
         print(model.dm.chunks)
     }
     
@@ -39,7 +39,6 @@ struct memoarModel {
         model.buffers["visual"] = chunk
         
         model.run()
-        
         return model.lastAction(slot: "isa")
     }
 }
