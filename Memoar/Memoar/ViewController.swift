@@ -42,42 +42,13 @@ class ViewController: UIViewController {
             let cardNr = cardButtons.firstIndex(of: sender)!
             let button = cardButtons[cardNr]
             
-            if button.currentImage == UIImage(named: "back") {
+            if button.currentImage == UIImage(named: "back") { // if card touched is not flipped
                 flipCard(at: cardNr)
-                
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
-                
                     for player in game.players {
                         turn+=1
-                        var model = modelArray[player-1]
-                        // Check all unflipped cards, after they are shuffled
-                        game.closedCards.shuffle()
-                        
-                        var answer = ""
-                        for card in game.closedCards {
-                            // cardNr is the number of the unflipped card
-                            // lastAnimal is the animal from the last flipped card
-                            // lastBackground is the background of the last flipped card
-                            answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
-                            //print(answer)
-                            
-                            if answer == "animalMatch" || answer == "backgroundMatch" {
-                                print("FOUND A CARD!!!")
-                                break
-                            }
-                        }
-                        
-                        // If there is any card to flip, then choose one
-                        if let model_choice = game.closedCards.randomElement() {
-                            flipCard(at: model_choice)
-                            
-                            if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
-                                draw_vulcano(player: player)
-                            }
-                        // Else, draw a volcano (no cards are unflipped)
-                        } else {
-                            game.players.remove(at: game.players.firstIndex(of: player)!)
-                        }
+                        // Check all unflipped cards, after they are shuffled if there are any
+                        model_turn(player: player)
                     }
                     turn = 0
                     if game.players.count == 0 {
@@ -92,11 +63,8 @@ class ViewController: UIViewController {
                             draw_treasure(player: 0)
                         }
                     }
-                } else {
+                } else { // models play without the player
                     draw_vulcano(player: 0)
-                    
-                    // For the model, when the player is out
-                    
                     while game.closedCards.count > 0 {
                         if game.players.count < 2 {
                             break
@@ -106,25 +74,43 @@ class ViewController: UIViewController {
                             if game.players.count < 2 {
                                 break
                             }
-                            
-                            // For loop through all unflipped cards
-                            
-                            if let model_choice =
-                                game.closedCards.randomElement() {
-                                flipCard(at: model_choice)
-                                if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
-                                   draw_vulcano(player: player)
-                                }
-                            } else {
-                                game.players.remove(at: game.players.firstIndex(of: player)!)
-                                draw_vulcano(player: player)
-                            }
+                            model_turn(player: player)
                         }
                     }
                     print("End of round. player \(game.players[0]) wins")
                     draw_treasure(player: game.players[0])
                 }
             }
+        }
+    }
+    
+    func model_turn(player: Int) {
+        if game.closedCards.count > 0 {
+            let model = modelArray[player-1]
+            game.closedCards.shuffle()
+            var answer = ""
+            var model_choice = game.closedCards.randomElement()! // random flip in case no match is found
+            for card in game.closedCards {
+                // cardNr is the number of the unflipped card
+                // lastAnimal is the animal from the last flipped card
+                // lastBackground is the background of the last flipped card
+                answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
+                //print(answer)
+                
+                if answer == "animalMatch" || answer == "backgroundMatch" {
+                    model_choice = card
+                    break
+                }
+            }
+        // For loop through all unflipped cards
+        
+            flipCard(at: model_choice)
+            if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
+               draw_vulcano(player: player)
+            }
+        } else {
+            game.players.remove(at: game.players.firstIndex(of: player)!)
+            draw_vulcano(player: player)
         }
     }
     
