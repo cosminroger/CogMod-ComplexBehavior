@@ -77,7 +77,7 @@
         bg =background
 )
 
-(p matchAnimalFirst
+(p matchAnimal
     =goal>
         state match
       - an nil
@@ -97,7 +97,7 @@
     -retrieval>
 )
 
-(p matchAnimalFirst
+(p matchBackground
     =goal>
         state match
       - an nil

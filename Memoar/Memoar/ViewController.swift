@@ -98,6 +98,7 @@ class ViewController: UIViewController {
                 //print(answer)
                 
                 if answer == "animalMatch" || answer == "backgroundMatch" {
+                    print("Retrieval Success!")
                     model_choice = card
                     break
                 }
