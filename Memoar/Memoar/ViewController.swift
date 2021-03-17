@@ -157,8 +157,8 @@ class ViewController: UIViewController {
     
     func flipCard(at cardNr: Int) {
         
-        for player in game.players{
-            let model = modelArray[player-1]
+        for player in [0,1,2]{
+            let model = modelArray[player]
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }
         

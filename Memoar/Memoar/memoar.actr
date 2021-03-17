@@ -5,8 +5,6 @@
    (goal isa memoar state startGame)
 )
 
-(set-all-baselevels -100 10) ;; time offset and number of references
-
 (p decide-action
     =goal>
         state startGame
