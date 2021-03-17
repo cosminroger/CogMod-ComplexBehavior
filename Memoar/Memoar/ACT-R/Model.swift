@@ -91,13 +91,13 @@ class Model {
         self.reset()
 
         
-        for (_,chunk) in dm.chunks {
-            print("\(chunk)")
-        }
-        print("")
-        for (_,prod) in procedural.productions {
-            print("\(prod)")
-        }
+        //for (_,chunk) in dm.chunks {
+        //    print("\(chunk)")
+        //}
+        //print("")
+        //for (_,prod) in procedural.productions {
+        //    print("\(prod)")
+        //}
     }
     
     /**
@@ -144,7 +144,7 @@ class Model {
                 print("waiting for temporal to do something")
                 continue }
             addToTrace(string: "production \(inst!.p.name) fires")
-            print("production \(inst!.p.name) fires")
+            //print("production \(inst!.p.name) fires")
             inst!.p.fire(instantiation: inst!)
             //model.addToTrace("Goal after production\n\(goalchunk)")
             
@@ -161,10 +161,10 @@ class Model {
                     if retrieveResult != nil {
                         addToTrace(string: "Retrieving \(retrieveResult!.name)")
                         buffers["retrieval"] = retrieveResult!
-                        print("Retrieving \(retrieveResult!.name)")
+                        //print("Retrieving \(retrieveResult!.name)")
                     } else {
                         addToTrace(string: "Retrieval failure")
-                        print("Retrieval failure")
+                        //print("Retrieval failure")
                         buffers["retrieval"] = nil
                     }
                 }

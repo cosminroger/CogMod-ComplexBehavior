@@ -50,7 +50,6 @@ class ViewController: UIViewController {
                         // Check all unflipped cards, after they are shuffled if there are any
                         model_turn(player: player)
                     }
-                    turn = 0
                     if game.players.count == 0 {
                         print("you won!")
                         draw_treasure(player: 0)
@@ -62,6 +61,8 @@ class ViewController: UIViewController {
                             print("End of round, you win!")
                             draw_treasure(player: 0)
                         }
+                    } else {
+                        turn = 0
                     }
                 } else { // models play without the player
                     draw_vulcano(player: 0)
@@ -69,7 +70,6 @@ class ViewController: UIViewController {
                         if game.players.count < 2 {
                             break
                         }
-                        
                         for player in game.players {
                             if game.players.count < 2 {
                                 break
@@ -77,6 +77,7 @@ class ViewController: UIViewController {
                             model_turn(player: player)
                         }
                     }
+                    print("players: \(game.players)")
                     print("End of round. player \(game.players[0]) wins")
                     draw_treasure(player: game.players[0])
                 }
@@ -152,12 +153,13 @@ class ViewController: UIViewController {
             completion: { _ in
                 self.scores[player] += self.game.treasures[self.game.round-1]
                 self.nextRound()
+                self.turn = 0
             })
     }
     
     func flipCard(at cardNr: Int) {
         
-        for player in [0,1,2]{
+        for player in 0...2 {
             let model = modelArray[player]
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }

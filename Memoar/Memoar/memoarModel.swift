@@ -14,7 +14,7 @@ struct memoarModel {
     init() {
         model.loadModel(fileName: "memoar")
         model.run()
-        print(model.lastAction(slot: "isa"))
+        //print(model.lastAction(slot: "isa"))
     }
     
     func memorizeCard(cardNo: Int!, animal: String!, background: String!) {
@@ -27,7 +27,7 @@ struct memoarModel {
         
         model.run()
         //print(model.lastAction(slot: "isa"))
-        print(model.dm.chunks)
+        //print(model.dm.chunks)
     }
     
     func checkCard(cardNr: Int!, lastAnimal: String!, lastBackground: String!) -> String? {
