@@ -164,7 +164,6 @@ class ViewController: UIViewController {
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }
         
-        
         print(cardNr)
         game.chooseCard(at: cardNr)
         updateView(at: cardNr)

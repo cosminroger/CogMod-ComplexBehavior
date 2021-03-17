@@ -81,10 +81,8 @@
       - an nil
       - bg nil
         an =an
-        bg =bg
     =visual>
-      lastAnimal =an
-      - lastBackground =bg
+        lastAnimal =an
 ==>
     =goal>
         state wait
@@ -100,11 +98,9 @@
         state match
       - an nil
       - bg nil
-        an =an
         bg =bg
     =visual>
-      - lastAnimal =an
-      lastBackground =bg
+        lastBackground =bg
 ==>
     =goal>
         state wait
@@ -133,6 +129,7 @@
         bg nil
     +action>
         isa noMatch
+    -retrieval>
 )
 
 ;;; IT ENDS HERE
