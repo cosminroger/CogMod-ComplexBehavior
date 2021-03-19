@@ -45,41 +45,56 @@ class ViewController: UIViewController {
             if button.currentImage == UIImage(named: "back") { // if card touched is not flipped
                 flipCard(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
+                    var delay = 0.0
                     for player in game.players {
-                        turn+=1
-                        // Check all unflipped cards, after they are shuffled if there are any
-                        model_turn(player: player)
-                    }
-                    if game.players.count == 0 {
-                        print("you won!")
-                        draw_treasure(player: 0)
-                    } else if game.closedCards.count == 0{
-                        if let final_player = game.players.last {
-                            print("End of round, player \(final_player) wins!")
-                            draw_treasure(player: final_player)
-                        } else {
-                            print("End of round, you win!")
-                            draw_treasure(player: 0)
+                        delay += 1.5
+                        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+                            self.turn = player
+                            // Check all unflipped cards, after they are shuffled if there are any
+                            self.model_turn(player: player)
                         }
-                    } else {
-                        turn = 0
+                    }
+                    Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
+                        let game = self.game
+                        if game.players.count == 0 {
+                            print("you won!")
+                            self.draw_treasure(player: 0)
+                        } else if game.closedCards.count == 0{
+                            if let final_player = game.players.last {
+                                print("End of round, player \(final_player) wins!")
+                                self.draw_treasure(player: final_player)
+                            } else {
+                                print("End of round, you win!")
+                                self.draw_treasure(player: 0)
+                            }
+                        } else {
+                            self.turn = 0
+                        }
                     }
                 } else { // models play without the player
                     draw_vulcano(player: 0)
+                    var delay = 0.0
                     while game.closedCards.count > 0 {
                         if game.players.count < 2 {
                             break
                         }
+                        delay = 0.0
                         for player in game.players {
                             if game.players.count < 2 {
                                 break
                             }
-                            model_turn(player: player)
+                            delay += 1.5
+                            Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
+                                self.model_turn(player: player)
+                            }
                         }
                     }
-                    print("players: \(game.players)")
-                    print("End of round. player \(game.players[0]) wins")
-                    draw_treasure(player: game.players[0])
+                    Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
+                        let game = self.game
+                        print("players: \(game.players)")
+                        print("End of round. player \(game.players[0]) wins")
+                        self.draw_treasure(player: game.players[0])
+                    }
                 }
             }
         }
