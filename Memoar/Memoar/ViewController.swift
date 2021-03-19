@@ -45,6 +45,7 @@ class ViewController: UIViewController {
             if button.currentImage == UIImage(named: "back") { // if card touched is not flipped
                 flipCard(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
+                    self.turn = game.players[0]
                     var delay = 0.0
                     for player in game.players {
                         delay += 1.5
@@ -75,6 +76,7 @@ class ViewController: UIViewController {
                     draw_vulcano(player: 0)
                     var delay = 0.0
                     while game.closedCards.count > 0 {
+                        print(game.players)
                         if game.players.count < 2 {
                             break
                         }
@@ -84,12 +86,12 @@ class ViewController: UIViewController {
                                 break
                             }
                             delay += 1.5
-                            Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
-                                self.model_turn(player: player)
-                            }
+                            turn = player
+                            // Check all unflipped cards, after they are shuffled if there are any
+                            model_turn(player: player)
                         }
                     }
-                    Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
+                    Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
                         let game = self.game
                         print("players: \(game.players)")
                         print("End of round. player \(game.players[0]) wins")
@@ -157,7 +159,7 @@ class ViewController: UIViewController {
         let y_change = self.game.y_changes[player]
         let x_change = self.game.x_changes[player]
         UIView.animate(withDuration:1, animations: {self.pileButtons[vulcano].frame.origin.y=CGFloat(y_change);self.pileButtons[vulcano].frame.origin.x=CGFloat(x_change)})
-        print(self.pileButtons[vulcano].frame.origin)
+        print("vulc:", self.pileButtons[vulcano].frame.origin)
     }
     
     func draw_treasure(player: Int) {
