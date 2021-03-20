@@ -15,6 +15,7 @@ class Memoar {
     var lastCard = Card(Background: "", Animal: "")
     var players = [1,2,3]
     var round = 1
+    var starter = 0
     var treasures = [1,1,2,2,2,3,4]
     var vulcanos = [1,2,3]
     var x_changes = [641,257,457,841,733,257,365,841]

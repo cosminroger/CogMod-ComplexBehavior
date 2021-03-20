@@ -133,6 +133,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func first_round() {
+        if turn != 0 {
+            model_turn(player: turn)
+            if turn < 3 {
+                turn += 1
+            } else {
+                turn = 0
+            }
+            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                self.first_round()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         for index in pileButtons.indices{
@@ -160,6 +174,9 @@ class ViewController: UIViewController {
         let x_change = self.game.x_changes[player]
         UIView.animate(withDuration:1, animations: {self.pileButtons[vulcano].frame.origin.y=CGFloat(y_change);self.pileButtons[vulcano].frame.origin.x=CGFloat(x_change)})
         print("vulc:", self.pileButtons[vulcano].frame.origin)
+        if game.vulcanos[vulcano] == 3 {
+            game.starter = player
+        }
     }
     
     func draw_treasure(player: Int) {
@@ -170,7 +187,8 @@ class ViewController: UIViewController {
             completion: { _ in
                 self.scores[player] += self.game.treasures[self.game.round-1]
                 self.nextRound()
-                self.turn = 0
+                self.turn = self.game.starter
+                self.first_round()
             })
     }
     
