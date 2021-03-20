@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5iO-hC-Aty">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hN9-Lo-MBt">
     <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -373,7 +373,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="531.3559322033899" y="53.414634146341463"/>
+            <point key="canvasLocation" x="648" y="-217"/>
+        </scene>
+        <!--Rules View Controller-->
+        <scene sceneID="jeM-xF-2Oc">
+            <objects>
+                <viewController id="74x-wk-wYP" customClass="RulesViewController" customModule="Memoar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wxi-6n-zAW">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qDf-JB-I2i">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TrU-uT-71k">
+                                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TrU-uT-71k" firstAttribute="leading" secondItem="qDf-JB-I2i" secondAttribute="leading" id="EXD-U5-Jor"/>
+                                    <constraint firstItem="TrU-uT-71k" firstAttribute="top" secondItem="qDf-JB-I2i" secondAttribute="top" id="IjD-Kr-ifY"/>
+                                    <constraint firstAttribute="bottom" secondItem="TrU-uT-71k" secondAttribute="bottom" id="Nlj-rH-hso"/>
+                                    <constraint firstAttribute="trailing" secondItem="TrU-uT-71k" secondAttribute="trailing" id="TsW-f5-ZkP"/>
+                                    <constraint firstItem="TrU-uT-71k" firstAttribute="width" secondItem="qDf-JB-I2i" secondAttribute="width" id="b6x-XE-lhl"/>
+                                    <constraint firstItem="TrU-uT-71k" firstAttribute="height" secondItem="qDf-JB-I2i" secondAttribute="height" id="fs2-Zg-D5Y"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XsV-ZG-r5I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="c3n-kV-ID1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5w-5o-SWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="647.7966101694916" y="478.53658536585363"/>
         </scene>
         <!--Menu-->
         <scene sceneID="lew-u5-dxq">
@@ -397,7 +432,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="nqc-kJ-cnD"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="nqc-kJ-cnD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-ia-NaZ">
@@ -409,6 +444,9 @@
                                 <state key="normal" title="Rules">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="74x-wk-wYP" kind="show" id="Szh-i4-iMY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PWy-BP-rL3"/>
@@ -422,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okd-XR-DG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.644067796610173" y="52.68292682926829"/>
+            <point key="canvasLocation" x="-94" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G0E-6U-CXl">

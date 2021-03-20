@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D58C44125DF3AFA009A913F /* memoar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D58C44025DF3AFA009A913F /* memoar.swift */; };
+		4D5C50D626064F3D0089D365 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C50D526064F3D0089D365 /* RulesViewController.swift */; };
 		4D647A4925F533040011A666 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D647A4825F533040011A666 /* MenuViewController.swift */; };
 		4DDD62A625DD201200656937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62A525DD201200656937 /* AppDelegate.swift */; };
 		4DDD62A825DD201200656937 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62A725DD201200656937 /* SceneDelegate.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		4D58C44025DF3AFA009A913F /* memoar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memoar.swift; sourceTree = SOURCE_ROOT; };
+		4D5C50D526064F3D0089D365 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		4D647A4825F533040011A666 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4DDD62A225DD201200656937 /* Memoar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memoar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DDD62A525DD201200656937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				E144A1D425F8CA7300C81A0F /* memoarModel.swift */,
 				4D58C44025DF3AFA009A913F /* memoar.swift */,
 				4DDD62AB25DD201200656937 /* Main.storyboard */,
+				4D5C50D526064F3D0089D365 /* RulesViewController.swift */,
 				4D647A4825F533040011A666 /* MenuViewController.swift */,
 				4DDD62AE25DD201D00656937 /* Assets.xcassets */,
 				4DDD62B025DD201D00656937 /* LaunchScreen.storyboard */,
@@ -345,6 +348,7 @@
 				E144A1FA25F8CF2900C81A0F /* Declarative.swift in Sources */,
 				4DDD62A825DD201200656937 /* SceneDelegate.swift in Sources */,
 				E144A1F125F8CF2900C81A0F /* FocusRing.swift in Sources */,
+				4D5C50D626064F3D0089D365 /* RulesViewController.swift in Sources */,
 				E144A1F025F8CF2900C81A0F /* BufferCondition.swift in Sources */,
 				E144A1F425F8CF2900C81A0F /* Vision.swift in Sources */,
 				E144A1F325F8CF2900C81A0F /* Chunk.swift in Sources */,
