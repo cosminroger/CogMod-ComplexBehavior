@@ -135,13 +135,14 @@ class ViewController: UIViewController {
     
     func first_round() {
         if turn != 0 {
-            model_turn(player: turn)
-            if turn < 3 {
-                turn += 1
-            } else {
-                turn = 0
-            }
             Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                self.model_turn(player: self.turn)
+                if self.turn < 3 {
+                    self.turn += 1
+                } else {
+                    self.turn = 0
+                }
+            
                 self.first_round()
             }
         }
