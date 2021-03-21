@@ -77,8 +77,14 @@ class ViewController: UIViewController {
                     var delay = 0.0
                     while game.closedCards.count > 0 {
                         print(game.players)
+                        if game.players.count < 2 {
+                            break
+                        }
                         delay = 0.0
                         for player in game.players {
+                            if game.players.count < 2 {
+                                break
+                            }
                             delay += 1.5
                             let _ = Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
                                 print("FUCK")
