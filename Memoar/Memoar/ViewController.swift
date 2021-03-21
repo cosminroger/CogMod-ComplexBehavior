@@ -49,13 +49,13 @@ class ViewController: UIViewController {
                     var delay = 0.0
                     for player in game.players {
                         delay += 1.5
-                        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+                        let _ = Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
                             self.turn = player
                             // Check all unflipped cards, after they are shuffled if there are any
                             self.model_turn(player: player)
                         }
                     }
-                    Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
+                    let _ = Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
                         let game = self.game
                         if game.players.count == 0 {
                             print("you won!")
@@ -77,21 +77,18 @@ class ViewController: UIViewController {
                     var delay = 0.0
                     while game.closedCards.count > 0 {
                         print(game.players)
-                        if game.players.count < 2 {
-                            break
-                        }
                         delay = 0.0
                         for player in game.players {
-                            if game.players.count < 2 {
-                                break
-                            }
                             delay += 1.5
-                            turn = player
-                            // Check all unflipped cards, after they are shuffled if there are any
-                            model_turn(player: player)
+                            let _ = Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+                                print("FUCK")
+                                self.turn = player
+                                // Check all unflipped cards, after they are shuffled if there are any
+                                self.model_turn(player: player)
+                            }
                         }
                     }
-                    Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                    let _ = Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
                         let game = self.game
                         print("players: \(game.players)")
                         print("End of round. player \(game.players[0]) wins")
@@ -113,14 +110,11 @@ class ViewController: UIViewController {
                 // cardNr is the number of the unflipped card
                 // lastAnimal is the animal from the last flipped card
                 // lastBackground is the background of the last flipped card
-                print("Currently checking card: \(card)")
                 answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
                 //print(answer)
                 
                 if answer == "animalMatch" || answer == "backgroundMatch" {
                     model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
-                    print("Answer is: \(model_choice)")
-                    print("Card is: \(card)")
                     break
                 }
             }

@@ -27,8 +27,8 @@ class Model {
     var waitingForAction: Bool = false {
         didSet {
             if waitingForAction == true {
-            print("Posted Action notification")
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "Action"), object: nil)
+                //print("Posted Action notification")
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "Action"), object: nil)
             }
         }
     }
