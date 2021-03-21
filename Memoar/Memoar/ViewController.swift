@@ -108,16 +108,19 @@ class ViewController: UIViewController {
             game.closedCards.shuffle()
             var answer = ""
             var model_choice = game.closedCards.randomElement()! // random flip in case no match is found
+            print("-------- Start checking ------------")
             for card in game.closedCards {
                 // cardNr is the number of the unflipped card
                 // lastAnimal is the animal from the last flipped card
                 // lastBackground is the background of the last flipped card
+                print("Currently checking card: \(card)")
                 answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
                 //print(answer)
                 
                 if answer == "animalMatch" || answer == "backgroundMatch" {
-                    print("Retrieval Success!")
-                    model_choice = card
+                    model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
+                    print("Answer is: \(model_choice)")
+                    print("Card is: \(card)")
                     break
                 }
             }
@@ -200,7 +203,7 @@ class ViewController: UIViewController {
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }
         
-        print(cardNr)
+        //print(cardNr)
         game.chooseCard(at: cardNr)
         updateView(at: cardNr)
     }

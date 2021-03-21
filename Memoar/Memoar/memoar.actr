@@ -5,6 +5,8 @@
    (goal isa memoar state startGame)
 )
 
+(sgp :rt -100)
+
 (p decide-action
     =goal>
         state startGame
@@ -45,6 +47,7 @@
 ==>
     =goal>
         state remembering
+        cardNr =cardNr
     +retrieval>
         cardNr =cardNr
 )
@@ -81,6 +84,7 @@
       - an nil
       - bg nil
         an =an
+        cardNr =cardNr
     =visual>
         lastAnimal =an
 ==>
@@ -88,8 +92,10 @@
         state wait
         an nil
         bg nil
+        cardNr nil
     +action>
         isa animalMatch
+        cardNr =cardNr
     -retrieval>
 )
 
@@ -99,6 +105,7 @@
       - an nil
       - bg nil
         bg =bg
+        cardNr =cardNr
     =visual>
         lastBackground =bg
 ==>
@@ -106,8 +113,10 @@
         state wait
         an nil
         bg nil
+        cardNr nil
     +action>
         isa backgroundMatch
+        cardNr =cardNr
     -retrieval>
 )
 
@@ -127,6 +136,7 @@
         state wait
         an nil
         bg nil
+        cardNr nil
     +action>
         isa noMatch
     -retrieval>

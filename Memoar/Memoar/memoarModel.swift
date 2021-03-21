@@ -20,7 +20,7 @@ struct memoarModel {
     func memorizeCard(cardNo: Int!, animal: String!, background: String!) {
         let chunk = Chunk(s: "card\(String(describing: cardNo))", m: model)
         chunk.setSlot(slot: "isa", value: "memorize")
-        chunk.setSlot(slot: "cardNr", value: "card\(String(cardNo))")
+        chunk.setSlot(slot: "cardNr", value: "\(String(cardNo))")
         chunk.setSlot(slot: "animal", value: animal)
         chunk.setSlot(slot: "background", value: background)
         model.buffers["visual"] = chunk
@@ -33,7 +33,7 @@ struct memoarModel {
     func checkCard(cardNr: Int!, lastAnimal: String!, lastBackground: String!) -> String? {
         let chunk = Chunk(s: "card\(String(describing: cardNr))", m: model)
         chunk.setSlot(slot: "isa", value: "myTurn")
-        chunk.setSlot(slot: "cardNr", value: "card\(String(cardNr))")
+        chunk.setSlot(slot: "cardNr", value: "\(String(cardNr))")
         chunk.setSlot(slot: "lastAnimal", value: lastAnimal)
         chunk.setSlot(slot: "lastBackground", value: lastBackground)
         model.buffers["visual"] = chunk
