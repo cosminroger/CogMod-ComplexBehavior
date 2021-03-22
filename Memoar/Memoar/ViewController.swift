@@ -48,7 +48,7 @@ class ViewController: UIViewController {
                     var delay = 0.0
                     for player in game.players {
                         delay += 1.5
-                        Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
+                        let _ = Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
                             self.turn = player
                             // Check all unflipped cards, after they are shuffled if there are any
                             self.model_turn(player: player)
@@ -73,21 +73,11 @@ class ViewController: UIViewController {
                     }
                 } else { // models play without the player
                     draw_vulcano(player: 0)
-                    var delay = 0.0
-                    while game.closedCards.count > 0 {
-                        print(game.players)
-                        if game.players.count < 2 {
+                    var result = modelsPlay()
+                    while result != "Done" {
+                        print("yes, I am here!")
+                        if result == "Done" {
                             break
-                        }
-                        delay = 0.0
-                        for player in game.players {
-                            if game.players.count < 2 {
-                                break
-                            }
-                            delay += 1.5
-                            turn = player
-                            // Check all unflipped cards, after they are shuffled if there are any
-                            model_turn(player: player)
                         }
                     }
                     Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
@@ -101,7 +91,41 @@ class ViewController: UIViewController {
         }
     }
     
-    func model_turn(player: Int) {
+    func modelsPlay() -> String {
+        
+        if game.players.count < 2 {
+            return "Done"
+        }
+        
+        let players = game.players.count
+        let currentPlayer = game.players[0]
+        turn = currentPlayer
+        var wait = ""
+        wait = self.model_turn(player: currentPlayer)
+        var counter = 0
+        while wait == "" {
+            counter += 1
+            print(counter)
+            if wait != "" {
+                break
+            }
+        }
+        
+        if players == game.players.count {
+            game.players.insert(game.players[0], at: game.players.count)
+            game.players.remove(at: 0)
+        }
+        
+        if game.players.count < 2{
+            return "Done"
+        } else {
+            wait = ""
+            usleep(1500000)
+            return modelsPlay()
+        }
+    }
+    
+    func model_turn(player: Int) -> String {
         if game.closedCards.count > 0 {
             let model = modelArray[player-1]
             game.closedCards.shuffle()
@@ -114,7 +138,7 @@ class ViewController: UIViewController {
                 // lastBackground is the background of the last flipped card
                 print("Currently checking card: \(card)")
                 answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
-                //print(answer)
+                print(answer)
                 
                 if answer == "animalMatch" || answer == "backgroundMatch" {
                     model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
@@ -123,7 +147,7 @@ class ViewController: UIViewController {
                     break
                 }
             }
-        // For loop through all unflipped cards
+            // For loop through all unflipped cards
         
             flipCard(at: model_choice)
             if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
@@ -133,6 +157,8 @@ class ViewController: UIViewController {
             game.players.remove(at: game.players.firstIndex(of: player)!)
             draw_vulcano(player: player)
         }
+        
+        return "Done"
     }
     
     func first_round() {
