@@ -73,33 +73,37 @@ class ViewController: UIViewController {
                     }
                 } else { // models play without the player
                     draw_vulcano(player: 0)
-                    var delay = 0.0
-                    var counter = 0
-                    while game.closedCards.count > 0 {
-                        if game.players.count < 2 {
-                            break
-                        }
-                        for player in game.players {
-                            if game.players.count < 2 {
-                                break
-                            }
-                            turn = player
-                            // Check all unflipped cards, after they are shuffled if there are any
-                            model_turn(player: player)
-                            }
-                        }
-                        counter += 1
-                    Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
-                        let game = self.game
-                        print("players: \(game.players)")
-                        print("End of round. player \(game.players[0]) wins")
-                        self.draw_treasure(player: game.players[0])
-                    }
+                    modelPlay()
                 }
             }
         }
     }
 
+    func modelPlay() {
+        if game.players.count > 1 {
+            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                let players = self.game.players.count
+                self.turn = self.game.players[0]
+                
+                // Check all unflipped cards, after they are shuffled if there are any
+                self.model_turn(player: self.game.players[0])
+                
+                if self.game.players.count == players {
+                    self.game.players.insert(self.game.players[0], at: self.game.players.count)
+                    self.game.players.remove(at: 0)
+                }
+                
+                self.modelPlay()
+            }
+        } else {
+            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                let game = self.game
+                print("players: \(game.players)")
+                print("End of round. player \(game.players[0]) wins")
+                self.draw_treasure(player: game.players[0])
+            }
+        }
+    }
     
     func model_turn(player: Int) {
         if game.closedCards.count > 0 {
