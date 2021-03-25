@@ -11,12 +11,16 @@ class ViewController: UIViewController {
     lazy var game: Memoar = Memoar()
     var modelArray = [memoarModel(), memoarModel(), memoarModel()]
     
-    var turn = 0 {
+    var turn = 7 {
         willSet {
-            userIcons[turn].image = UIImage(named: "parrot\(turn+1)")
+            if [0,1,2,3].contains(turn) {
+                userIcons[turn].image = UIImage(named: "parrot\(turn+1)")
+            }
         }
         didSet {
-            userIcons[turn].image = UIImage(named: "parrot\(turn+1)_turn")
+            if [0,1,2,3].contains(turn) {
+                userIcons[turn].image = UIImage(named: "parrot\(turn+1)_turn")
+            }
         }
     }
     
@@ -37,10 +41,11 @@ class ViewController: UIViewController {
     @IBOutlet var userIcons: [UIImageView]!
     
     @IBAction func touchCard(_ sender: UIButton) {
-        if turn == 0 {
+        let cardNr = cardButtons.firstIndex(of: sender)!
+        print(cardNr,turn)
+        if turn == 0 || (turn == 4 && ![20,21,22].contains(cardNr)) {
             let cardNr = cardButtons.firstIndex(of: sender)!
             let button = cardButtons[cardNr]
-            
             if button.currentImage == UIImage(named: "back") { // if card touched is not flipped
                 flipCard(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
@@ -172,6 +177,28 @@ class ViewController: UIViewController {
             button.layer.shadowRadius = 5
             button.layer.shadowOpacity = 1
             button.layer.shadowOffset = CGSize(width: 4, height: 7)
+        }
+        
+        // models remember their 3 cards
+        let beginner_cards = [[5,10,14],[1,2,3],[9,13,18]]
+        for player in 0...2 {
+            for cardNr in beginner_cards[player] {
+                let model = modelArray[player]
+                model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
+            }
+        }
+        
+        // human can see their 3 cards for a few seconds
+        for button in 20...22 {
+            game.chooseCard(at: button)
+            updateView(at: button)
+        }
+        Timer.scheduledTimer(withTimeInterval: 7, repeats: false) { _ in
+            for i in 20...22 {
+                let button = self.cardButtons[i]
+                button.setImage(UIImage(named: "back"), for: .normal)
+                UIView.transition(with: button, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: {_ in self.turn -= 1})
+            }
         }
     }
     

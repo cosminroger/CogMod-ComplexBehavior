@@ -27,7 +27,7 @@ struct memoarModel {
         
         model.run()
         //print(model.lastAction(slot: "isa"))
-        //print(model.dm.chunks)
+        print(model.dm.chunks)
     }
     
     func checkCard(cardNr: Int!, lastAnimal: String!, lastBackground: String!) -> String? {
