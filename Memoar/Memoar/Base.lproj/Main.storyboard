@@ -380,35 +380,213 @@
             <objects>
                 <viewController id="74x-wk-wYP" customClass="RulesViewController" customModule="Memoar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wxi-6n-zAW">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qDf-JB-I2i">
-                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbO-Ns-DkX">
+                                <rect key="frame" x="0.0" y="50" width="1180" height="1930"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TrU-uT-71k">
-                                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lw-T6-jVJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="1180" height="3000"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rPE-tC-A9l">
+                                                <rect key="frame" x="82" y="110" width="498" height="66"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">You must find your way to the hidden treasures and collect more rubies than your competitors. But be careful not to get swallowed up by a volcano on the way!
+</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="There are 25 location cards, each one a unique combination of one of five animals and one of five backgrounds. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K78-mI-llU">
+                                                <rect key="frame" x="83" y="247" width="497.5" height="49.5"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Objective" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-km-cWF">
+                                                <rect key="frame" x="258" y="48" width="149" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Playing cards" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f2G-C5-sAP">
+                                                <rect key="frame" x="226" y="184" width="214" height="55"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gjA-Qk-Tqa">
+                                                <rect key="frame" x="82" y="787" width="498" height="119"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="playingCards" translatesAutoresizingMaskIntoConstraints="NO" id="LJ8-2r-9tT">
+                                                <rect key="frame" x="176" y="304" width="314" height="187"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="abV-ee-zrO">
+                                                <rect key="frame" x="83" y="499" width="498" height="122"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">In addition, there are seven Treasure cards and three Volcano cards. The Treasure cards differ from each other in the number of rubies that are displayed on them. They range from one to four rubies.  The Volcano cards differ in the number of birds shown on them. They have one, two or three birds portrayed on them.</mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-H9-a2t">
+                                                <rect key="frame" x="84" y="903" width="498" height="131"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">The locations are arranged in a 5x5 grid. The location in the very center of the grid is discarded from the game. In its place, the seven Treasure cards are placed in random order, and on top of them the three Volcano cards are stacked - also in random order.  Each user is portrayed by a parrot icon. Yours is at the bottom of the screen.</mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cig-tK-I3L">
+                                                <rect key="frame" x="84" y="1439" width="498" height="133"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">At the beginning of each round, the starting player chooses one location to reveal. The next player has to try and match the previous location to stay in the round.   To match a location, a player has to turn around a card that either shows the same animal or the same background as the previously revealed card. Here is an example of a correct match followed by an incorrect one:</mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-wB-nUb">
+                                                <rect key="frame" x="84" y="1730" width="498" height="219"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">Some player has revealed the seal on the sand background. The next player reveals a location that also shows a sand background. Since the background matches the previously turned location's background, the player survives. The following player now needs to match the turtle on the sand background. However, the player reveals a penguin on a red background. Neither the animal nor the background match the previous location.  When a player fails to match the previous location, he or she must draw the topmost Volcano card and is eliminated from the current round. A round ends when all but one player have been eliminated. The remaining player gets to collect the topmost Treasure card.   </mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RyA-Wr-ZjC">
+                                                <rect key="frame" x="82" y="2170" width="498" height="87"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">In the first round you get to go first. The starting player for all subsequent round is the determined by the Volcanoes. At the end of each round, three players will have a Volcano card in their possession. The player with the Volcano card that shows the most birds, gets to take the first turn. </mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMU-sW-Wcz">
+                                                <rect key="frame" x="82" y="2331" width="498" height="150"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <mutableString key="text">Before the game starts each player gets to view the three center locations on their side of the playing field. For you as a player this means that the three center locations at the bottom of the screen in front of your user icon will be revealed for 5 seconds. Thereafter, they will be flipped face-down and the game will start. You will not be allowed to flip around one of these three locations on your first turn. However, this rule applies only to the starting player in the very first round! In subsequent rounds you will be allowed to reveal these locations even if you are the starting player!</mutableString>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Treasures_volcanoes" translatesAutoresizingMaskIntoConstraints="NO" id="YCJ-dN-UHE">
+                                                <rect key="frame" x="175" y="629" width="317" height="203"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Setup" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lcK-8D-kb0">
+                                                <rect key="frame" x="285" y="840" width="92" height="55"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Setup" translatesAutoresizingMaskIntoConstraints="NO" id="auZ-2E-SIT">
+                                                <rect key="frame" x="29" y="1042" width="605" height="323"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Gameplay" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kmk-lF-9oR">
+                                                <rect key="frame" x="255" y="1373" width="154" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Who starts the round?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="paD-tB-NJB">
+                                                <rect key="frame" x="191" y="2104" width="319" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Before the game" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nnC-k7-c77">
+                                                <rect key="frame" x="232" y="2265" width="236" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HN2-0P-Njv">
+                                                <rect key="frame" x="82" y="2023" width="498" height="73"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">The player that has collected the most rubies throughout the game wins! This does not necessarily have to be the player that won the most rounds! Remember: the Treasures differ in the number of rubies they have.</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Who wins the game?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pDf-SZ-pJK">
+                                                <rect key="frame" x="191" y="1957" width="319" height="58"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Match_example1" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-Xz-777">
+                                                <rect key="frame" x="58" y="1505" width="549" height="293"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="before_the_game" translatesAutoresizingMaskIntoConstraints="NO" id="wvf-JL-8Xo">
+                                                <rect key="frame" x="47" y="2514" width="583" height="386"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3000" id="EaA-ts-P8b"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="TrU-uT-71k" firstAttribute="leading" secondItem="qDf-JB-I2i" secondAttribute="leading" id="EXD-U5-Jor"/>
-                                    <constraint firstItem="TrU-uT-71k" firstAttribute="top" secondItem="qDf-JB-I2i" secondAttribute="top" id="IjD-Kr-ifY"/>
-                                    <constraint firstAttribute="bottom" secondItem="TrU-uT-71k" secondAttribute="bottom" id="Nlj-rH-hso"/>
-                                    <constraint firstAttribute="trailing" secondItem="TrU-uT-71k" secondAttribute="trailing" id="TsW-f5-ZkP"/>
-                                    <constraint firstItem="TrU-uT-71k" firstAttribute="width" secondItem="qDf-JB-I2i" secondAttribute="width" id="b6x-XE-lhl"/>
-                                    <constraint firstItem="TrU-uT-71k" firstAttribute="height" secondItem="qDf-JB-I2i" secondAttribute="height" id="fs2-Zg-D5Y"/>
+                                    <constraint firstItem="9lw-T6-jVJ" firstAttribute="leading" secondItem="0Rt-NU-isA" secondAttribute="leading" id="FpE-dX-kHR"/>
+                                    <constraint firstItem="9lw-T6-jVJ" firstAttribute="width" secondItem="Lgs-ps-iSq" secondAttribute="width" id="HDy-Xu-OqK"/>
+                                    <constraint firstItem="9lw-T6-jVJ" firstAttribute="trailing" secondItem="0Rt-NU-isA" secondAttribute="trailing" id="erT-Rf-Rub"/>
+                                    <constraint firstItem="9lw-T6-jVJ" firstAttribute="bottom" secondItem="0Rt-NU-isA" secondAttribute="bottom" id="fnJ-BH-xY3"/>
+                                    <constraint firstItem="9lw-T6-jVJ" firstAttribute="top" secondItem="0Rt-NU-isA" secondAttribute="top" id="s4k-qe-RKV"/>
                                 </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="0Rt-NU-isA"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Lgs-ps-iSq"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XsV-ZG-r5I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZbO-Ns-DkX" firstAttribute="top" secondItem="XsV-ZG-r5I" secondAttribute="top" id="CmU-Vx-uV0"/>
+                            <constraint firstItem="ZbO-Ns-DkX" firstAttribute="trailing" secondItem="XsV-ZG-r5I" secondAttribute="trailing" id="TTO-BQ-Aze"/>
+                            <constraint firstItem="ZbO-Ns-DkX" firstAttribute="bottom" secondItem="XsV-ZG-r5I" secondAttribute="bottom" id="ot9-03-tM7"/>
+                            <constraint firstItem="ZbO-Ns-DkX" firstAttribute="leading" secondItem="XsV-ZG-r5I" secondAttribute="leading" id="yae-y9-nwh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c3n-kV-ID1"/>
+                    <size key="freeformSize" width="1180" height="2000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5w-5o-SWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="647.7966101694916" y="478.53658536585363"/>
+            <point key="canvasLocation" x="648.30508474576277" y="894.8780487804878"/>
         </scene>
         <!--Menu-->
         <scene sceneID="lew-u5-dxq">
@@ -482,12 +660,20 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Match_example1" width="883" height="213"/>
+        <image name="Setup" width="1005" height="667"/>
+        <image name="Treasures_volcanoes" width="580" height="338"/>
         <image name="back" width="1000" height="1000"/>
         <image name="background" width="1180" height="820"/>
+        <image name="before_the_game" width="635" height="416"/>
         <image name="parrot1_turn" width="1000" height="1000"/>
         <image name="parrot2" width="1000" height="1000"/>
         <image name="parrot3" width="1000" height="1000"/>
         <image name="parrot4" width="1000" height="1000"/>
+        <image name="playingCards" width="621" height="424"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
