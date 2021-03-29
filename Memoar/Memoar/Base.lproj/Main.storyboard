@@ -369,25 +369,91 @@
                         <outletCollection property="scoreLabels" destination="yl2-hY-NDG" collectionClass="NSMutableArray" id="lUL-yb-3vS"/>
                         <outletCollection property="scoreLabels" destination="bC4-2W-1u4" collectionClass="NSMutableArray" id="UsK-Ct-ffd"/>
                         <outletCollection property="scoreLabels" destination="EbH-Yq-gl0" collectionClass="NSMutableArray" id="W6F-PU-yGX"/>
+                        <segue destination="MJ0-EC-g1g" kind="presentation" identifier="endGame" modalPresentationStyle="fullScreen" id="VAv-xq-nAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648" y="-217"/>
+            <point key="canvasLocation" x="572" y="-217"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="1TC-oX-Rfn">
+            <objects>
+                <viewController id="MJ0-EC-g1g" customClass="ResultViewController" customModule="Memoar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gPj-iZ-sQ8">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Emh-cs-zjN">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tu8-f9-cSP">
+                                <rect key="frame" x="498" y="464" width="145" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64247430679999995" green="0.64880665110000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="hvt-Vk-8F1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-bj-0jH">
+                                <rect key="frame" x="498" y="561" width="145" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64247430679999995" green="0.64880665110000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Main Menu">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hN9-Lo-MBt" kind="presentation" modalPresentationStyle="fullScreen" id="BmE-Ob-sLw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player1: 10 pointts Player2: 3 points    You: 2 points   Player3: 1 points" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbz-Bd-SEn">
+                                <rect key="frame" x="434" y="262" width="323" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="textColor" red="0.21682417392730713" green="0.065182983875274658" blue="0.28777310252189636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congratulations! You won with 0 points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUA-2j-7Te">
+                                <rect key="frame" x="161" y="195" width="789" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="39"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ol4-IM-bTI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="highscoreLabel" destination="Jbz-Bd-SEn" id="1n1-Vf-rmR"/>
+                        <outlet property="resultLabel" destination="EUA-2j-7Te" id="MKw-6g-CFK"/>
+                        <outletCollection property="resultButtons" destination="Tu8-f9-cSP" collectionClass="NSMutableArray" id="34w-rv-sAC"/>
+                        <outletCollection property="resultButtons" destination="9fb-bj-0jH" collectionClass="NSMutableArray" id="mzY-ak-dtU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVv-D4-hIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1331.6949152542375" y="-217.3170731707317"/>
         </scene>
         <!--Rules View Controller-->
         <scene sceneID="jeM-xF-2Oc">
             <objects>
                 <viewController id="74x-wk-wYP" customClass="RulesViewController" customModule="Memoar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wxi-6n-zAW">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbO-Ns-DkX">
-                                <rect key="frame" x="0.0" y="50" width="1180" height="1930"/>
+                                <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lw-T6-jVJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="1180" height="3000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="704" height="3000"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rPE-tC-A9l">
                                                 <rect key="frame" x="82" y="110" width="498" height="66"/>
@@ -439,7 +505,7 @@
                                                 <rect key="frame" x="83" y="499" width="498" height="122"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">In addition, there are seven Treasure cards and three Volcano cards. The Treasure cards differ from each other in the number of rubies that are displayed on them. They range from one to four rubies.  The Volcano cards differ in the number of birds shown on them. They have one, two or three birds portrayed on them.</mutableString>
+                                                <string key="text">In addition, there are seven Treasure cards and three Volcano cards. The Treasure cards differ from each other in the number of rubies that are displayed on them. They range from one to four rubies.  The Volcano cards differ in the number of birds shown on them. They have one, two or three birds portrayed on them.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -448,7 +514,7 @@
                                                 <rect key="frame" x="84" y="903" width="498" height="131"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">The locations are arranged in a 5x5 grid. The location in the very center of the grid is discarded from the game. In its place, the seven Treasure cards are placed in random order, and on top of them the three Volcano cards are stacked - also in random order.  Each user is portrayed by a parrot icon. Yours is at the bottom of the screen.</mutableString>
+                                                <string key="text">The locations are arranged in a 5x5 grid. The location in the very center of the grid is discarded from the game. In its place, the seven Treasure cards are placed in random order, and on top of them the three Volcano cards are stacked - also in random order.  Each user is portrayed by a parrot icon. Yours is at the bottom of the screen.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -457,7 +523,7 @@
                                                 <rect key="frame" x="84" y="1439" width="498" height="133"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">At the beginning of each round, the starting player chooses one location to reveal. The next player has to try and match the previous location to stay in the round.   To match a location, a player has to turn around a card that either shows the same animal or the same background as the previously revealed card. Here is an example of a correct match followed by an incorrect one:</mutableString>
+                                                <string key="text">At the beginning of each round, the starting player chooses one location to reveal. The next player has to try and match the previous location to stay in the round.   To match a location, a player has to turn around a card that either shows the same animal or the same background as the previously revealed card. Here is an example of a correct match followed by an incorrect one:</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -466,7 +532,7 @@
                                                 <rect key="frame" x="84" y="1730" width="498" height="219"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">Some player has revealed the seal on the sand background. The next player reveals a location that also shows a sand background. Since the background matches the previously turned location's background, the player survives. The following player now needs to match the turtle on the sand background. However, the player reveals a penguin on a red background. Neither the animal nor the background match the previous location.  When a player fails to match the previous location, he or she must draw the topmost Volcano card and is eliminated from the current round. A round ends when all but one player have been eliminated. The remaining player gets to collect the topmost Treasure card.   </mutableString>
+                                                <string key="text">Some player has revealed the seal on the sand background. The next player reveals a location that also shows a sand background. Since the background matches the previously turned location's background, the player survives. The following player now needs to match the turtle on the sand background. However, the player reveals a penguin on a red background. Neither the animal nor the background match the previous location.  When a player fails to match the previous location, he or she must draw the topmost Volcano card and is eliminated from the current round. A round ends when all but one player have been eliminated. The remaining player gets to collect the topmost Treasure card.   </string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -475,7 +541,7 @@
                                                 <rect key="frame" x="82" y="2170" width="498" height="87"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">In the first round you get to go first. The starting player for all subsequent round is the determined by the Volcanoes. At the end of each round, three players will have a Volcano card in their possession. The player with the Volcano card that shows the most birds, gets to take the first turn. </mutableString>
+                                                <string key="text">In the first round you get to go first. The starting player for all subsequent round is the determined by the Volcanoes. At the end of each round, three players will have a Volcano card in their possession. The player with the Volcano card that shows the most birds, gets to take the first turn. </string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -484,7 +550,7 @@
                                                 <rect key="frame" x="82" y="2331" width="498" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">Before the game starts each player gets to view the three center locations on their side of the playing field. For you as a player this means that the three center locations at the bottom of the screen in front of your user icon will be revealed for 5 seconds. Thereafter, they will be flipped face-down and the game will start. You will not be allowed to flip around one of these three locations on your first turn. However, this rule applies only to the starting player in the very first round! In subsequent rounds you will be allowed to reveal these locations even if you are the starting player!</mutableString>
+                                                <string key="text">Before the game starts each player gets to view the three center locations on their side of the playing field. For you as a player this means that the three center locations at the bottom of the screen in front of your user icon will be revealed for 5 seconds. Thereafter, they will be flipped face-down and the game will start. You will not be allowed to flip around one of these three locations on your first turn. However, this rule applies only to the starting player in the very first round! In subsequent rounds you will be allowed to reveal these locations even if you are the starting player!</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -659,6 +725,10 @@
             <point key="canvasLocation" x="-807.45762711864415" y="52.68292682926829"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="BmE-Ob-sLw"/>
+        <segue reference="hvt-Vk-8F1"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Match_example1" width="883" height="213"/>
         <image name="Setup" width="1005" height="667"/>

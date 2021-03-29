@@ -139,19 +139,20 @@ class ViewController: UIViewController {
             if hit != "hit" {
                 let temp = model.model.dm.chunks
                 var tempCards = game.closedCards
-                var counter = 0
                 for each in temp {
                     if each.value.slotvals["cardNr"] != nil {
                         if let index = tempCards.firstIndex(of: Int((each.value.slotvals["cardNr"]?.number())!)) {
                             tempCards.remove(at: index)
-                            counter += 1
                         }
                     }
                 }
-                model_choice = tempCards.randomElement()!
+                if tempCards.count > 0 {
+                    model_choice = tempCards.randomElement()!
+                } else {
+                    model_choice = game.closedCards.randomElement()!
+                }
             }
             
-
             flipCard(at: model_choice)
             if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
                draw_vulcano(player: player)
@@ -237,11 +238,23 @@ class ViewController: UIViewController {
         let x_change = self.game.x_changes[player+4]
         UIView.animate(withDuration:1, animations: {self.pileButtons[treasure].frame.origin.y=CGFloat(y_change);self.pileButtons[treasure].frame.origin.x=CGFloat(x_change)},
             completion: { _ in
-                self.scores[player] += self.game.treasures[self.game.round-1]
-                self.nextRound()
-                self.turn = self.game.starter
-                self.first_round()
+                if self.game.round < 7 {
+                    self.scores[player] += self.game.treasures[self.game.round-1]
+                    self.nextRound()
+                    self.turn = self.game.starter
+                    self.first_round()
+                } else {
+                    self.performSegue(withIdentifier: "endGame", sender: nil)
+                }
             })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! ResultViewController
+        vc.scores = scores
+        if scores.max() == scores[0] {
+            vc.win = true
+        }
     }
     
     func flipCard(at cardNr: Int) {

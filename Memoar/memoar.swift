@@ -70,6 +70,5 @@ class Memoar {
         }
         
         vulcanos.shuffle()
-        treasures.shuffle()
     }
 }
