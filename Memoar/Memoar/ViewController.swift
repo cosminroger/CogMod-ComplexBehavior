@@ -75,11 +75,27 @@ class ViewController: UIViewController {
                         } else {
                             self.turn = 0
                         }
+                        self.memorizeFinalCards()
                     }
                 } else { // models play without the player
                     draw_vulcano(player: 0)
                     modelPlay()
                 }
+            }
+        }
+    }
+    
+    func memorizeFinalCards() {
+        var mem = [Int]()
+        for card in 0...23 {
+            if !game.closedCards.contains(card) {
+                mem.append(card)
+            }
+        }
+        
+        for cardNr in mem {
+            for model in modelArray {
+                model.memorizeCard(cardNo: cardNr, animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
             }
         }
     }
@@ -106,6 +122,7 @@ class ViewController: UIViewController {
                 print("players: \(game.players)")
                 print("End of round. player \(game.players[0]) wins")
                 self.draw_treasure(player: game.players[0])
+                self.memorizeFinalCards()
             }
         }
     }
