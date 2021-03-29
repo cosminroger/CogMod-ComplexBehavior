@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct memoarModel {
+class memoarModel {
     let name = "Model"
     let model = Model()
+    var time = NSDate().timeIntervalSince1970 * 1000
     
     init() {
         model.loadModel(fileName: "memoar")
         model.run()
-        //print(model.lastAction(slot: "isa"))
+        time = NSDate().timeIntervalSince1970 * 1000
     }
     
     func memorizeCard(cardNo: Int!, animal: String!, background: String!) {
@@ -25,9 +26,10 @@ struct memoarModel {
         chunk.setSlot(slot: "background", value: background)
         model.buffers["visual"] = chunk
         
+        model.time += ((NSDate().timeIntervalSince1970 * 1000 - time)/1000)
+        time = NSDate().timeIntervalSince1970 * 1000
+        
         model.run()
-        //print(model.lastAction(slot: "isa"))
-        print(model.dm.chunks)
     }
     
     func checkCard(cardNr: Int!, lastAnimal: String!, lastBackground: String!) -> String? {
@@ -38,8 +40,12 @@ struct memoarModel {
         chunk.setSlot(slot: "lastBackground", value: lastBackground)
         model.buffers["visual"] = chunk
         
+        model.time += ((NSDate().timeIntervalSince1970 * 1000 - time)/1000)
+        time = NSDate().timeIntervalSince1970 * 1000
+        
         model.run()
         return model.lastAction(slot: "isa")
+
     }
 }
 

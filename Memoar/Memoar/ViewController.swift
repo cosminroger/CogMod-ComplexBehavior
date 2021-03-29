@@ -86,7 +86,7 @@ class ViewController: UIViewController {
 
     func modelPlay() {
         if game.players.count > 1 {
-            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                 let players = self.game.players.count
                 self.turn = self.game.players[0]
                 
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
                 self.modelPlay()
             }
         } else {
-            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
                 let game = self.game
                 print("players: \(game.players)")
                 print("End of round. player \(game.players[0]) wins")
