@@ -115,6 +115,7 @@ class ViewController: UIViewController {
             let model = modelArray[player-1]
             game.closedCards.shuffle()
             var answer = ""
+            var hit = ""
             var model_choice = game.closedCards.randomElement()! // random flip in case no match is found
             print("-------- Start checking ------------")
             for card in game.closedCards {
@@ -127,13 +128,30 @@ class ViewController: UIViewController {
                 
                 if answer == "animalMatch" || answer == "backgroundMatch" {
                     model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
+                    hit = "hit"
                     print("Answer is: \(model_choice)")
                     print("Card is: \(card)")
                     break
                 }
             }
-            // For loop through all unflipped cards
-        
+            
+            // If I don't have a hit, go through all cards that I have in DM and remove those from game.lastCard
+            if hit != "hit" {
+                let temp = model.model.dm.chunks
+                var tempCards = game.closedCards
+                var counter = 0
+                for each in temp {
+                    if each.value.slotvals["cardNr"] != nil {
+                        if let index = tempCards.firstIndex(of: Int((each.value.slotvals["cardNr"]?.number())!)) {
+                            tempCards.remove(at: index)
+                            counter += 1
+                        }
+                    }
+                }
+                model_choice = tempCards.randomElement()!
+            }
+            
+
             flipCard(at: model_choice)
             if !game.matchingCard(card1: game.lastCard, card2: model_choice, player: player) {
                draw_vulcano(player: player)

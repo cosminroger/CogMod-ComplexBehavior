@@ -30,6 +30,7 @@ class memoarModel {
         time = NSDate().timeIntervalSince1970 * 1000
         
         model.run()
+        //print(model.dm.chunks)
     }
     
     func checkCard(cardNr: Int!, lastAnimal: String!, lastBackground: String!) -> String? {
