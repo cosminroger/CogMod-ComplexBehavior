@@ -7,7 +7,7 @@
 
 (sgp :rt -100)
 
-(p decide-action
+(p start
     =goal>
         state startGame
 ==>

@@ -51,7 +51,6 @@ class Memoar {
             //print("yay:\(lastCard) is a match!")
             return true
         }
-        failed_players += 1
         if player > 0 {
             players.remove(at: players.firstIndex(of: player)!)
         }

@@ -239,6 +239,7 @@ class ViewController: UIViewController {
     }
     
     func draw_vulcano(player: Int) {
+        self.game.failed_players += 1
         let vulcano = -1 + self.game.failed_players
         let y_change = self.game.y_changes[player]
         let x_change = self.game.x_changes[player]
