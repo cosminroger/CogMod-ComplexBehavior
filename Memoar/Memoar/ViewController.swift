@@ -10,6 +10,8 @@ class ViewController: UIViewController {
 
     lazy var game: Memoar = Memoar()
     var modelArray = [memoarModel(), memoarModel(), memoarModel()]
+    var difficulty = 0
+    
     
     var turn = 7 {
         willSet {
@@ -197,6 +199,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("DIFF: \(difficulty)")
         for index in pileButtons.indices{
             print(index)
             print(game.vulcanos)

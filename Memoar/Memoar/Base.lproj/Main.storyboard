@@ -8,6 +8,76 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Difficulty View Controller-->
+        <scene sceneID="9Rv-Pc-ObS">
+            <objects>
+                <viewController id="a0S-ng-f9k" customClass="DifficultyViewController" customModule="Memoar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="75H-vT-q3x">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="83G-hW-6lw">
+                                <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKB-0W-rdr">
+                                <rect key="frame" x="496" y="204" width="188" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="46"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLy-Co-rMp">
+                                <rect key="frame" x="518" y="294" width="145" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64247430679999995" green="0.64880665110000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchButton:" destination="a0S-ng-f9k" eventType="touchUpInside" id="pEF-r9-Q1h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVB-ul-npq">
+                                <rect key="frame" x="518" y="375" width="145" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64247430679999995" green="0.64880665110000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Hard">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchButton:" destination="a0S-ng-f9k" eventType="touchUpInside" id="o8k-pM-Hmr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1u-rP-ARY">
+                                <rect key="frame" x="518" y="456" width="145" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64247430679999995" green="0.64880665110000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Expert">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchButton:" destination="a0S-ng-f9k" eventType="touchUpInside" id="S8N-od-J3R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4pc-mg-MuX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outletCollection property="difficultyButtons" destination="pLy-Co-rMp" collectionClass="NSMutableArray" id="99X-nt-QgW"/>
+                        <outletCollection property="difficultyButtons" destination="aVB-ul-npq" collectionClass="NSMutableArray" id="mlZ-f2-HQT"/>
+                        <outletCollection property="difficultyButtons" destination="F1u-rP-ARY" collectionClass="NSMutableArray" id="W66-cD-DMp"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="difficultySegue" modalPresentationStyle="fullScreen" id="O9c-7e-U0P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qem-TJ-Bsb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164" y="-217"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -374,7 +444,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-217"/>
+            <point key="canvasLocation" x="828" y="-217"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="1TC-oX-Rfn">
@@ -439,7 +509,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVv-D4-hIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1331.6949152542375" y="-217.3170731707317"/>
+            <point key="canvasLocation" x="1499" y="-217"/>
         </scene>
         <!--Rules View Controller-->
         <scene sceneID="jeM-xF-2Oc">
@@ -652,7 +722,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5w-5o-SWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648.30508474576277" y="894.8780487804878"/>
+            <point key="canvasLocation" x="829" y="950"/>
         </scene>
         <!--Menu-->
         <scene sceneID="lew-u5-dxq">
@@ -676,7 +746,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="nqc-kJ-cnD"/>
+                                    <segue destination="a0S-ng-f9k" kind="presentation" modalPresentationStyle="fullScreen" id="v2s-rA-6LM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gN-ia-NaZ">
@@ -704,7 +774,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okd-XR-DG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-94" y="168"/>
+            <point key="canvasLocation" x="-372" y="724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="G0E-6U-CXl">
@@ -722,12 +792,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCr-Dh-OKf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-807.45762711864415" y="52.68292682926829"/>
+            <point key="canvasLocation" x="-1041" y="724"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="BmE-Ob-sLw"/>
-        <segue reference="hvt-Vk-8F1"/>
+        <segue reference="O9c-7e-U0P"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Match_example1" width="883" height="213"/>

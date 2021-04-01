@@ -34,12 +34,15 @@ class ResultViewController: UIViewController {
             resultLabel.text = "You lost with \(scores[0]) points"
         }
         var highscoreText = ""
-        for _ in 0...3 {
+        for i in 0...3 {
+            if i != 0 {
+                highscoreText += "\n"
+            }
             let bestScore = scores.firstIndex(of: scores.max()!)!
             if bestScore == 0 {
-                highscoreText += "You: \(scores[0]) points \n"
+                highscoreText += "You: \(scores[0]) points"
             } else {
-                highscoreText += "Player\(bestScore): \(scores[bestScore]) points \n"
+                highscoreText += "Player\(bestScore): \(scores[bestScore]) points"
             }
             scores[bestScore] = -1
         }
