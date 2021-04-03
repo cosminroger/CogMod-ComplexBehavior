@@ -18,8 +18,8 @@ class Memoar {
     var starter = 0
     var treasures = [1,1,2,2,2,3,4]
     var vulcanos = [1,2,3]
-    var x_changes = [641,257,457,841,733,257,365,841]
-    var y_changes = [669,465,69,273,669,561,69,177]
+    var x_changes = [733,341,549,943,825,341,457,943]
+    var y_changes = [771,567,171,375,771, 663,171,279]
     
     func chooseCard(at index: Int) {
         print(index)
