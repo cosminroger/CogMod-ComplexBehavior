@@ -26,6 +26,7 @@ class memoarModel {
         chunk.setSlot(slot: "background", value: background)
         model.buffers["visual"] = chunk
         
+        print(((NSDate().timeIntervalSince1970 * 1000 - time)/1000))
         model.time += ((NSDate().timeIntervalSince1970 * 1000 - time)/1000)
         time = NSDate().timeIntervalSince1970 * 1000
         
@@ -45,7 +46,6 @@ class memoarModel {
         time = NSDate().timeIntervalSince1970 * 1000
         
         model.run()
-
         return model.lastAction(slot: "isa")
 
     }

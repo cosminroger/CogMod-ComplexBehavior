@@ -128,7 +128,6 @@
       - bg nil
         an =an
         bg =bg
-        cardNr =cardNr
     =visual>
       - lastAnimal =an
       - lastBackground =bg
@@ -140,9 +139,6 @@
         cardNr nil
     +action>
         isa noMatch
-        an =an
-        bg =bg
-        cardNr =cardNr
     -retrieval>
 )
 

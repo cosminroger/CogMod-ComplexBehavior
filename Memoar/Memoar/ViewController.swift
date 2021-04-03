@@ -54,14 +54,14 @@ class ViewController: UIViewController {
                     self.turn = game.players[0]
                     var delay = 0.0
                     for player in game.players {
-                        delay += (Double(game.closedCards.count)*0.15)
+                        delay += 1.5
                         Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
                             self.turn = player
                             // Check all unflipped cards, after they are shuffled if there are any
                             self.model_turn(player: player)
                         }
                     }
-                    Timer.scheduledTimer(withTimeInterval: delay + (Double(game.closedCards.count)*0.15), repeats: false) { _ in
+                    Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
                         let game = self.game
                         if game.players.count == 0 {
                             print("you won!")
@@ -104,7 +104,7 @@ class ViewController: UIViewController {
 
     func modelPlay() {
         if game.players.count > 1 {
-            Timer.scheduledTimer(withTimeInterval: (Double(game.closedCards.count)*0.15), repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
                 let players = self.game.players.count
                 self.turn = self.game.players[0]
                 
@@ -133,19 +133,25 @@ class ViewController: UIViewController {
         if game.closedCards.count > 0 {
             let model = modelArray[player-1]
             game.closedCards.shuffle()
+            var answer = ""
             var hit = ""
             var model_choice = game.closedCards.randomElement()! // random flip in case no match is found
             print("-------- Start checking ------------")
-            //print("Last animal: \(game.lastCard.animal)")
-            //print("Last background: \(game.lastCard.background)")
-            
-            let array = game.closedCards
-            
-            checkCards(model: player-1, array: array)
-            
-            if model.model.lastAction(slot: "isa") == "animalMatch" || model.model.lastAction(slot: "isa") == "backgroundMatch" {
-                model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
-                hit = "hit"
+            for card in game.closedCards {
+                // cardNr is the number of the unflipped card
+                // lastAnimal is the animal from the last flipped card
+                // lastBackground is the background of the last flipped card
+                print("Currently checking card: \(card)")
+                answer = model.checkCard(cardNr: card, lastAnimal: game.lastCard.animal, lastBackground: game.lastCard.background) ?? ""
+                print(answer)
+                
+                if answer == "animalMatch" || answer == "backgroundMatch" {
+                    model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
+                    hit = "hit"
+                    print("Answer is: \(model_choice)")
+                    print("Card is: \(card)")
+                    break
+                }
             }
             
             // If I don't have a hit, go through all cards that I have in DM and remove those from game.lastCard
@@ -173,32 +179,6 @@ class ViewController: UIViewController {
         } else {
             game.players.remove(at: game.players.firstIndex(of: player)!)
             draw_vulcano(player: player)
-        }
-    }
-    
-    // Very important function here!!!!!
-    
-    func checkCards(model: Int, array: [Int]) {
-        if array.count > 0 {
-            Timer.scheduledTimer(withTimeInterval: 0.15, repeats: false) { _ in
-                let answer = self.modelArray[model].checkCard(cardNr: array[0], lastAnimal: self.game.lastCard.animal, lastBackground: self.game.lastCard.background)
-                
-                if answer == "animalMatch" || answer == "backgroundMatch" {
-                    _ = (self.modelArray[model].model.lastAction(slot: "cardNr")! as NSString).integerValue
-                    print(self.modelArray[model].model.lastAction(slot: "isa"))
-                    self.checkCards(model:model, array: [])
-                } else {
-                    var temp = array
-                    temp.remove(at: 0)
-                    if self.modelArray[model].model.lastAction(slot: "isa") == "noMatch" {
-                        print("\(self.modelArray[model].model.lastAction(slot: "isa")) ----------")
-                        print(self.modelArray[model].model.lastAction(slot: "cardNr"))
-                        print(self.modelArray[model].model.lastAction(slot: "an"))
-                        print(self.modelArray[model].model.lastAction(slot: "bg"))
-                    }
-                    self.checkCards(model: model, array: temp)
-                }
-            }
         }
     }
     
@@ -305,6 +285,7 @@ class ViewController: UIViewController {
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }
         
+        //print(cardNr)
         game.chooseCard(at: cardNr)
         updateView(at: cardNr)
     }
