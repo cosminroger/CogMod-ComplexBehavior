@@ -11,6 +11,7 @@ class ResultViewController: UIViewController {
     
     var scores = [0,0,0,0]
     var win = false
+    var difficulty:Int = 0
 
     @IBOutlet var resultButtons: [UIButton]!
     @IBOutlet var resultLabel: UILabel!
@@ -50,4 +51,10 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "playAgain" {
+            let vc = segue.destination as! ViewController
+            vc.difficulty = difficulty
+        }
+    }
 }

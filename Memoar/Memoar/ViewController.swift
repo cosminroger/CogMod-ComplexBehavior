@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     lazy var game: Memoar = Memoar()
     var modelArray = [memoarModel(), memoarModel(), memoarModel()]
     var difficulty = 0
+    var difficulty_chances = [0.30,0.20,0.10]
     
     
     var turn = 7 {
@@ -146,10 +147,21 @@ class ViewController: UIViewController {
                 print(answer)
                 
                 if answer == "animalMatch" || answer == "backgroundMatch" {
-                    model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
+                    let random_double = Double.random(in: 0..<1)
                     hit = "hit"
-                    print("Answer is: \(model_choice)")
                     print("Card is: \(card)")
+                    model_choice = (model.model.lastAction(slot: "cardNr")! as NSString).integerValue
+                    if random_double <= difficulty_chances[difficulty] {
+                        print("missed!: ", random_double)
+                        if let adjacentCards = game.adjacentCards[model_choice] {
+                            print("Adjacent cards: ", adjacentCards)
+                            let intersection = adjacentCards.intersection(game.closedCards)
+                            if intersection.count > 0 {
+                                model_choice = intersection.randomElement()!
+                            }
+                        }
+                    }
+                    print("Answer is: \(model_choice)")
                     break
                 }
             }
@@ -259,11 +271,13 @@ class ViewController: UIViewController {
         let x_change = self.game.x_changes[player+4]
         UIView.animate(withDuration:1, animations: {self.pileButtons[treasure].frame.origin.y=CGFloat(y_change);self.pileButtons[treasure].frame.origin.x=CGFloat(x_change)},
             completion: { _ in
+                self.scores[player] += self.game.treasures[self.game.round-1]
                 if self.game.round < 7 {
-                    self.scores[player] += self.game.treasures[self.game.round-1]
-                    self.nextRound()
-                    self.turn = self.game.starter
-                    self.first_round()
+                    Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                        self.nextRound()
+                        self.turn = self.game.starter
+                        self.first_round()
+                    }
                 } else {
                     self.performSegue(withIdentifier: "endGame", sender: nil)
                 }
@@ -276,6 +290,7 @@ class ViewController: UIViewController {
         if scores.max() == scores[0] {
             vc.win = true
         }
+        vc.difficulty = difficulty
     }
     
     func flipCard(at cardNr: Int) {
@@ -307,7 +322,7 @@ class ViewController: UIViewController {
             UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
         for i in 0...2 {
-            UIView.animate(withDuration:1, animations: {self.pileButtons[i].frame.origin.y=369;self.pileButtons[i].frame.origin.x=549})
+            UIView.animate(withDuration:1, animations: {self.pileButtons[i].frame.origin.y=471;self.pileButtons[i].frame.origin.x=641})
             pileButtons[i].setImage(UIImage(named: "vulcano\(game.vulcanos[i])"), for: .normal)
         }
     }

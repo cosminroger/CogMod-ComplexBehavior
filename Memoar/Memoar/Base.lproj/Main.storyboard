@@ -472,7 +472,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="hvt-Vk-8F1"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="playAgain" modalPresentationStyle="fullScreen" id="hvt-Vk-8F1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fb-bj-0jH">
@@ -727,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5w-5o-SWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="950"/>
+            <point key="canvasLocation" x="828" y="967"/>
         </scene>
         <!--Menu-->
         <scene sceneID="lew-u5-dxq">
@@ -809,7 +809,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="BmE-Ob-sLw"/>
-        <segue reference="O9c-7e-U0P"/>
+        <segue reference="hvt-Vk-8F1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Match_example1" width="883" height="213"/>
