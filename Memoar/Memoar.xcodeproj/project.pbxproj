@@ -21,6 +21,8 @@
 		4DDD62BD25DD201E00656937 /* MemoarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62BC25DD201E00656937 /* MemoarTests.swift */; };
 		4DDD62C825DD201E00656937 /* MemoarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62C725DD201E00656937 /* MemoarUITests.swift */; };
 		4DDD62E325DD229F00656937 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDD62E225DD229F00656937 /* Card.swift */; };
+		E141BCB0261A354700AE4919 /* memoarHard.actr in Resources */ = {isa = PBXBuildFile; fileRef = E141BCAE261A354700AE4919 /* memoarHard.actr */; };
+		E141BCB1261A354700AE4919 /* memoarNormal.actr in Resources */ = {isa = PBXBuildFile; fileRef = E141BCAF261A354700AE4919 /* memoarNormal.actr */; };
 		E144A1D525F8CA7300C81A0F /* memoarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1D425F8CA7300C81A0F /* memoarModel.swift */; };
 		E144A1DA25F8CB7F00C81A0F /* memoar.actr in Resources */ = {isa = PBXBuildFile; fileRef = E144A1D925F8CB7F00C81A0F /* memoar.actr */; };
 		E144A1EF25F8CF2900C81A0F /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = E144A1DE25F8CF2800C81A0F /* Support.swift */; };
@@ -80,6 +82,8 @@
 		4DDD62C725DD201E00656937 /* MemoarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoarUITests.swift; sourceTree = "<group>"; };
 		4DDD62C925DD201E00656937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DDD62E225DD229F00656937 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = SOURCE_ROOT; };
+		E141BCAE261A354700AE4919 /* memoarHard.actr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memoarHard.actr; sourceTree = "<group>"; };
+		E141BCAF261A354700AE4919 /* memoarNormal.actr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memoarNormal.actr; sourceTree = "<group>"; };
 		E144A1D425F8CA7300C81A0F /* memoarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoarModel.swift; sourceTree = "<group>"; };
 		E144A1D925F8CB7F00C81A0F /* memoar.actr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = memoar.actr; sourceTree = "<group>"; };
 		E144A1DE25F8CF2800C81A0F /* Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Support.swift; path = "ACT-R/Support.swift"; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 				E144A1E125F8CF2800C81A0F /* Instantiation.swift */,
 				E144A1E825F8CF2800C81A0F /* Model.swift */,
 				E144A1E625F8CF2800C81A0F /* Parser.swift */,
+				E141BCAE261A354700AE4919 /* memoarHard.actr */,
+				E141BCAF261A354700AE4919 /* memoarNormal.actr */,
 				E144A1E725F8CF2800C81A0F /* Procedural.swift */,
 				E144A1EE25F8CF2900C81A0F /* Production.swift */,
 				E144A1EA25F8CF2900C81A0F /* SlotAction.swift */,
@@ -307,6 +313,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E144A1DA25F8CB7F00C81A0F /* memoar.actr in Resources */,
+				E141BCB1261A354700AE4919 /* memoarNormal.actr in Resources */,
+				E141BCB0261A354700AE4919 /* memoarHard.actr in Resources */,
 				4DDD62B225DD201D00656937 /* LaunchScreen.storyboard in Resources */,
 				4DDD62AF25DD201D00656937 /* Assets.xcassets in Resources */,
 				4DDD62AD25DD201200656937 /* Main.storyboard in Resources */,

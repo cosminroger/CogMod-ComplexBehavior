@@ -9,10 +9,9 @@ import UIKit
 class ViewController: UIViewController {
 
     lazy var game: Memoar = Memoar()
-    var modelArray = [memoarModel(), memoarModel(), memoarModel()]
     var difficulty = 0
+    var modelArray: [memoarModel] = []
     var difficulty_chances = [0.30,0.20,0.10]
-    
     
     var turn = 7 {
         willSet {
@@ -88,6 +87,8 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     func memorizeFinalCards() {
         var mem = [Int]()
         for card in 0...23 {
@@ -96,7 +97,31 @@ class ViewController: UIViewController {
             }
         }
         
-        for cardNr in mem {
+        var finalArray: [Int] = []
+        
+        if difficulty == 0 {
+            if mem.count < 5 {
+                finalArray = Array(mem.prefix(Int.random(in: 3...mem.count)))
+            } else {
+                finalArray = Array(mem.prefix(Int.random(in: 3...5)))
+            }
+        } else if difficulty == 1 {
+            if mem.count < 7 {
+                if mem.count < 5 {
+                    finalArray = Array(mem.prefix(mem.count))
+                } else if mem.count < 7 {
+                    finalArray = Array(mem.prefix(Int.random(in: 5...mem.count)))
+                } else {
+                    finalArray = Array(mem.prefix(Int.random(in: 5...7)))
+                }
+            }
+        } else {
+            finalArray = mem
+        }
+        
+        print("Final Array: \(finalArray)")
+        
+        for cardNr in finalArray {
             for model in modelArray {
                 model.memorizeCard(cardNo: cardNr, animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
             }
@@ -212,6 +237,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("DIFF: \(difficulty)")
+        modelArray = [memoarModel(difficulty: difficulty), memoarModel(difficulty: difficulty), memoarModel(difficulty: difficulty)]
         for index in pileButtons.indices{
             print(index)
             print(game.vulcanos)
@@ -299,8 +325,7 @@ class ViewController: UIViewController {
             let model = modelArray[player]
             model.memorizeCard(cardNo: cardNr,animal: game.cards[cardNr].animal, background: game.cards[cardNr].background)
         }
-        
-        //print(cardNr)
+
         game.chooseCard(at: cardNr)
         updateView(at: cardNr)
     }

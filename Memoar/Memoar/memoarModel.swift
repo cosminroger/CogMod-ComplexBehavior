@@ -12,8 +12,15 @@ class memoarModel {
     let model = Model()
     var time = NSDate().timeIntervalSince1970 * 1000
     
-    init() {
-        model.loadModel(fileName: "memoar")
+    init(difficulty: Int) {
+        if difficulty == 0 {
+            model.loadModel(fileName: "memoarNormal")
+        } else if difficulty == 1 {
+            model.loadModel(fileName: "memoarHard")
+        } else {
+            model.loadModel(fileName: "memoar")
+        }
+        print("Difficulty: \(difficulty)")
         model.run()
         time = NSDate().timeIntervalSince1970 * 1000
     }

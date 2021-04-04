@@ -1,0 +1,148 @@
+;;; Model Memoar
+;;;
+
+(add-dm
+   (goal isa memoar state startGame)
+)
+
+(sgp :rt -10)
+
+(p start
+    =goal>
+        state startGame
+==>
+    =goal>
+        state wait
+    +action>
+        isa ready
+)
+
+(p rememberCard
+    =goal>
+        state wait
+    =visual>
+        isa memorize
+==>
+    =goal>
+        state memorizing
+    -visual>
+)
+
+(p cardRemembered
+    =goal>
+        state memorizing
+==>
+    =goal>
+        state wait
+    +action>
+        isa cardMemorized
+)
+
+(p checkCard
+    =goal>
+        state wait
+    =visual>
+        isa myTurn
+        cardNr =cardNr
+==>
+    =goal>
+        state remembering
+        cardNr =cardNr
+    +retrieval>
+        cardNr =cardNr
+)
+
+(p retrFail
+    =goal>
+        state remembering
+    ?retrieval>
+        state error
+==>
+    =goal>
+        state wait
+    +action>
+        isa retrievalError
+)
+
+(p retrSuccess
+    =goal>
+        state remembering
+    =retrieval>
+        isa memorize
+        animal =animal
+        background =background
+==>
+    =goal>
+        state match
+        an =animal
+        bg =background
+)
+
+(p matchAnimal
+    =goal>
+        state match
+      - an nil
+      - bg nil
+        an =an
+        cardNr =cardNr
+    =visual>
+        lastAnimal =an
+==>
+    =goal>
+        state wait
+        an nil
+        bg nil
+        cardNr nil
+    +action>
+        isa animalMatch
+        cardNr =cardNr
+    -retrieval>
+)
+
+(p matchBackground
+    =goal>
+        state match
+      - an nil
+      - bg nil
+        bg =bg
+        cardNr =cardNr
+    =visual>
+        lastBackground =bg
+==>
+    =goal>
+        state wait
+        an nil
+        bg nil
+        cardNr nil
+    +action>
+        isa backgroundMatch
+        cardNr =cardNr
+    -retrieval>
+)
+
+
+(p noMatch
+    =goal>
+        state match
+      - an nil
+      - bg nil
+        an =an
+        bg =bg
+    =visual>
+      - lastAnimal =an
+      - lastBackground =bg
+==>
+    =goal>
+        state wait
+        an nil
+        bg nil
+        cardNr nil
+    +action>
+        isa noMatch
+    -retrieval>
+)
+
+;;; IT ENDS HERE
+
+(goal-focus goal)
+
