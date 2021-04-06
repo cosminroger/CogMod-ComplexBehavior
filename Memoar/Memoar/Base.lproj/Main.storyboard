@@ -3,6 +3,7 @@
     <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -389,6 +390,19 @@
                                 <color key="textColor" red="0.086753062903881073" green="0.14931091666221619" blue="0.79435855150222778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.086753062903881073" green="0.14931091666221619" blue="0.79435855150222778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWc-VJ-id2">
+                                <rect key="frame" x="20" y="21" width="101" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="tintColor" red="0.92544215919999995" green="0.90073710679999996" blue="0.51559865469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" systemColor="systemTealColor"/>
+                                    <imageReference key="backgroundImage" image="arrowshape.turn.up.backward.fill" catalog="system" renderingMode="template"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hN9-Lo-MBt" kind="presentation" modalPresentationStyle="fullScreen" id="bYO-jq-dKZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -449,7 +463,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="-217"/>
+            <point key="canvasLocation" x="827.96486090775977" y="-217.3828125"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="1TC-oX-Rfn">
@@ -809,13 +823,14 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="VAv-xq-nAy"/>
-        <segue reference="BmE-Ob-sLw"/>
+        <segue reference="bYO-jq-dKZ"/>
         <segue reference="hvt-Vk-8F1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Match_example1" width="883" height="213"/>
         <image name="Setup" width="1005" height="667"/>
         <image name="Treasures_volcanoes" width="580" height="338"/>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="128" height="106"/>
         <image name="back" width="1000" height="1000"/>
         <image name="background" width="1180" height="820"/>
         <image name="before_the_game" width="635" height="416"/>
@@ -832,6 +847,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

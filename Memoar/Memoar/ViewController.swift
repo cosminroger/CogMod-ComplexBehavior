@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var difficulty = 0
     var modelArray: [memoarModel] = []
     let difficulty_chances = [0.30,0.20,0.10]
-    let difficulty_delays = [3.0,2.0,1.0]
+    let difficulty_delays = [2.0,1.0,0.5]
     
     var turn = 7 {
         willSet {
@@ -312,12 +312,14 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ResultViewController
-        vc.scores = scores
-        if scores.max() == scores[0] {
-            vc.win = true
+        if segue.identifier == "endGame" {
+            let vc = segue.destination as! ResultViewController
+            vc.scores = scores
+            if scores.max() == scores[0] {
+                vc.win = true
+            }
+            vc.difficulty = difficulty
         }
-        vc.difficulty = difficulty
     }
     
     func flipCard(at cardNr: Int) {
@@ -354,6 +356,9 @@ class ViewController: UIViewController {
     
     func nextRound() {
         game.resetRound()
+        let lastCard = cardButtons[game.lastIndex]
+        lastCard.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        game.lastIndex = 25
         for index in cardButtons.indices{
             let button = cardButtons[index]
             button.setImage(UIImage(named: "back"), for: .normal)
