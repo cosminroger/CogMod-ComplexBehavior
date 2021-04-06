@@ -11,12 +11,16 @@ class ViewController: UIViewController {
     lazy var game: Memoar = Memoar()
     var difficulty = 0
     var modelArray: [memoarModel] = []
-    var difficulty_chances = [0.30,0.20,0.10]
+    let difficulty_chances = [0.30,0.20,0.10]
+    let difficulty_delays = [3.0,2.0,1.0]
     
     var turn = 7 {
         willSet {
             if [0,1,2,3].contains(turn) {
+                print("old_turn:", turn)
                 userIcons[turn].image = UIImage(named: "parrot\(turn+1)")
+            } else if turn == 4 {
+                userIcons[0].image = UIImage(named: "parrot1")
             }
         }
         didSet {
@@ -44,7 +48,7 @@ class ViewController: UIViewController {
     
     @IBAction func touchCard(_ sender: UIButton) {
         let cardNr = cardButtons.firstIndex(of: sender)!
-        print(cardNr,turn)
+        print("turn: ", cardNr,turn)
         if turn == 0 || (turn == 4 && ![20,21,22].contains(cardNr)) {
             let cardNr = cardButtons.firstIndex(of: sender)!
             let button = cardButtons[cardNr]
@@ -52,16 +56,17 @@ class ViewController: UIViewController {
                 flipCard(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
                     self.turn = game.players[0]
+                    print("turn: ", turn)
                     var delay = 0.0
                     for player in game.players {
-                        delay += 1.5
+                        delay += 1.5 + self.difficulty_delays[self.difficulty]
                         Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in
                             self.turn = player
                             // Check all unflipped cards, after they are shuffled if there are any
                             self.model_turn(player: player)
                         }
                     }
-                    Timer.scheduledTimer(withTimeInterval: delay + 1.5, repeats: false) { _ in
+                    Timer.scheduledTimer(withTimeInterval: delay + 1.5 + self.difficulty_delays[self.difficulty], repeats: false) { _ in
                         let game = self.game
                         if game.players.count == 0 {
                             print("you won!")
@@ -130,7 +135,7 @@ class ViewController: UIViewController {
 
     func modelPlay() {
         if game.players.count > 1 {
-            Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 1.5 + self.difficulty_delays[self.difficulty], repeats: false) { _ in
                 let players = self.game.players.count
                 self.turn = self.game.players[0]
                 
