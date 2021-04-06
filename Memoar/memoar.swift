@@ -33,6 +33,7 @@ class Memoar {
     var closedCards = [Int]()
     var failed_players = 0
     var lastCard = Card(Background: "", Animal: "")
+    var lastIndex = 25
     var players = [1,2,3]
     var round = 1
     var starter = 0

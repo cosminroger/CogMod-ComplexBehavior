@@ -808,6 +808,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="VAv-xq-nAy"/>
         <segue reference="BmE-Ob-sLw"/>
         <segue reference="hvt-Vk-8F1"/>
     </inferredMetricsTieBreakers>

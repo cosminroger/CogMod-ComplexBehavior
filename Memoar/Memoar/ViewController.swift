@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     var turn = 7 {
         willSet {
             if [0,1,2,3].contains(turn) {
-                print("old_turn:", turn)
                 userIcons[turn].image = UIImage(named: "parrot\(turn+1)")
             } else if turn == 4 {
                 userIcons[0].image = UIImage(named: "parrot1")
@@ -56,7 +55,6 @@ class ViewController: UIViewController {
                 flipCard(at: cardNr)
                 if game.matchingCard(card1: game.lastCard, card2: cardNr , player: 0) {
                     self.turn = game.players[0]
-                    print("turn: ", turn)
                     var delay = 0.0
                     for player in game.players {
                         delay += 1.5 + self.difficulty_delays[self.difficulty]
@@ -226,7 +224,7 @@ class ViewController: UIViewController {
     
     func first_round() {
         if turn != 0 {
-            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+            Timer.scheduledTimer(withTimeInterval: 1.5 + difficulty_delays[difficulty], repeats: false) { _ in
                 self.model_turn(player: self.turn)
                 if self.turn < 3 {
                     self.turn += 1
@@ -251,7 +249,6 @@ class ViewController: UIViewController {
                 pileButtons[index].setImage(UIImage(named: "vulcano\(game.vulcanos[index])"), for: .normal)
             } else {
                 let treasure = game.treasures[index - 3]
-                print("tr:",index,treasure)
                 pileButtons[index].setImage(UIImage(named: "Treasure\(treasure)"), for: .normal)
             }
         }
@@ -290,7 +287,6 @@ class ViewController: UIViewController {
         let y_change = self.game.y_changes[player]
         let x_change = self.game.x_changes[player]
         UIView.animate(withDuration:1, animations: {self.pileButtons[vulcano].frame.origin.y=CGFloat(y_change);self.pileButtons[vulcano].frame.origin.x=CGFloat(x_change)})
-        print("vulc:", self.pileButtons[vulcano].frame.origin)
         if game.vulcanos[vulcano] == 3 {
             game.starter = player
         }
@@ -341,6 +337,18 @@ class ViewController: UIViewController {
         if card.isFaceUp {
             button.setImage(UIImage(named: "\(card.animal)\(card.background)"), for: .normal)
             UIView.transition(with: button, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        }
+        if turn < 5 {
+            button.layer.borderColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            button.layer.borderWidth = 4.5
+            button.layer.cornerRadius = 0.2
+            if game.lastIndex == 25 {
+                game.lastIndex = index
+            } else {
+                let lastCard = cardButtons[game.lastIndex]
+                lastCard.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+                game.lastIndex = index
+            }
         }
     }
     
