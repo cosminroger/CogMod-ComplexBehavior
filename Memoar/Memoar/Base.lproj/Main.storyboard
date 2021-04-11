@@ -544,8 +544,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lw-T6-jVJ">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="3000"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rPE-tC-A9l">
-                                                <rect key="frame" x="82" y="110" width="498" height="66"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPE-tC-A9l">
+                                                <rect key="frame" x="82" y="110" width="498" height="91"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">You must find your way to the hidden treasures and collect more rubies than your competitors. But be careful not to get swallowed up by a volcano on the way!
@@ -554,8 +554,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="There are 25 location cards, each one a unique combination of one of five animals and one of five backgrounds. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K78-mI-llU">
-                                                <rect key="frame" x="83" y="247" width="497.5" height="49.5"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="There are 25 location cards, each one a unique combination of one of five animals and one of five backgrounds. " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K78-mI-llU">
+                                                <rect key="frame" x="83" y="247" width="498" height="58"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -590,7 +590,7 @@
                                                 <rect key="frame" x="176" y="304" width="314" height="187"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="abV-ee-zrO">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abV-ee-zrO">
                                                 <rect key="frame" x="83" y="499" width="498" height="122"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -599,17 +599,17 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-H9-a2t">
-                                                <rect key="frame" x="84" y="903" width="498" height="131"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mQ-H9-a2t">
+                                                <rect key="frame" x="84" y="903" width="498" height="133"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">The locations are arranged in a 5x5 grid. The location in the very center of the grid is discarded from the game. In its place, the seven Treasure cards are placed in random order, and on top of them the three Volcano cards are stacked - also in random order.  Each user is portrayed by a parrot icon. Yours is at the bottom of the screen.</string>
+                                                <mutableString key="text">The locations are arranged in a 5x5 grid. The location in the very center of the grid is discarded from the game. In its place, the seven Treasure cards are placed in ascending order from top to bottom, and on top of them the three Volcano cards are stacked in random order.  Each user is portrayed by a parrot icon. Yours is at the bottom of the screen.</mutableString>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cig-tK-I3L">
-                                                <rect key="frame" x="84" y="1439" width="498" height="133"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cig-tK-I3L">
+                                                <rect key="frame" x="84" y="1439" width="498" height="141"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">At the beginning of each round, the starting player chooses one location to reveal. The next player has to try and match the previous location to stay in the round.   To match a location, a player has to turn around a card that either shows the same animal or the same background as the previously revealed card. Here is an example of a correct match followed by an incorrect one:</string>
@@ -617,31 +617,39 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-wB-nUb">
-                                                <rect key="frame" x="84" y="1730" width="498" height="219"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkT-wB-nUb">
+                                                <rect key="frame" x="84" y="1730" width="498" height="232"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">Some player has revealed the seal on the sand background. The next player reveals a location that also shows a sand background. Since the background matches the previously turned location's background, the player survives. The following player now needs to match the turtle on the sand background. However, the player reveals a penguin on a red background. Neither the animal nor the background match the previous location.  When a player fails to match the previous location, he or she must draw the topmost Volcano card and is eliminated from the current round. A round ends when all but one player have been eliminated. The remaining player gets to collect the topmost Treasure card.   </string>
+                                                <mutableString key="text">Some player has revealed the seal on the sand background. The next player reveals a location that also shows a sand background. Since the background matches the previously turned location's background, the player survives. The following player now needs to match the turtle on the sand background by turning around a card that either shows a turtle or a sand background. However, in our example the player reveals a penguin on a red background. Neither the animal nor the background match the previous location.  When a player fails to match the previous location, he or she must draw the topmost Volcano card and is eliminated from the current round. A round ends when all but one player have been eliminated. The remaining player gets to collect the topmost Treasure card.   </mutableString>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RyA-Wr-ZjC">
-                                                <rect key="frame" x="82" y="2170" width="498" height="87"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyA-Wr-ZjC">
+                                                <rect key="frame" x="82" y="2170" width="498" height="95"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">In the first round you get to go first. The starting player for all subsequent round is the determined by the Volcanoes. At the end of each round, three players will have a Volcano card in their possession. The player with the Volcano card that shows the most birds, gets to take the first turn. </string>
+                                                <string key="text">In the first round you get to go first. The starting player for all subsequent rounds is the determined by the Volcanoes. At the end of each round, three players will have a Volcano card in their possession. The player with the Volcano card that shows the most birds, gets to take the first turn. </string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yMU-sW-Wcz">
-                                                <rect key="frame" x="82" y="2331" width="498" height="150"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMU-sW-Wcz">
+                                                <rect key="frame" x="82" y="2324" width="498" height="201"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <string key="text">Before the game starts each player gets to view the three center locations on their side of the playing field. For you as a player this means that the three center locations at the bottom of the screen in front of your user icon will be revealed for 5 seconds. Thereafter, they will be flipped face-down and the game will start. You will not be allowed to flip around one of these three locations on your first turn. However, this rule applies only to the starting player in the very first round! In subsequent rounds you will be allowed to reveal these locations even if you are the starting player!</string>
+                                                <mutableString key="text">Before the game starts each player gets to view the three center locations on their side of the playing field. For you as a player, this means that the three center locations at the bottom of the screen in front of your user icon will be revealed for 5 seconds. Thereafter, they will be flipped face-down and the game will start. You will not be allowed to flip around one of the locations that you or one of the other players just got to look at on your first turn. However, this rule applies only to the starting player in the very first round! In subsequent rounds you will be allowed to reveal these locations even if you are the starting player!</mutableString>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Good Luck on the treasure hunt!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Yw-AJ-PYZ">
+                                                <rect key="frame" x="201" y="2872" width="298" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Treasures_volcanoes" translatesAutoresizingMaskIntoConstraints="NO" id="YCJ-dN-UHE">
@@ -684,8 +692,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HN2-0P-Njv">
-                                                <rect key="frame" x="82" y="2023" width="498" height="73"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HN2-0P-Njv">
+                                                <rect key="frame" x="82" y="2023" width="498" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">The player that has collected the most rubies throughout the game wins! This does not necessarily have to be the player that won the most rounds! Remember: the Treasures differ in the number of rubies they have.</string>
@@ -701,12 +709,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Match_example1" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-Xz-777">
-                                                <rect key="frame" x="58" y="1505" width="549" height="293"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="before_the_game" translatesAutoresizingMaskIntoConstraints="NO" id="wvf-JL-8Xo">
+                                                <rect key="frame" x="47" y="2514" width="583" height="323"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="before_the_game" translatesAutoresizingMaskIntoConstraints="NO" id="wvf-JL-8Xo">
-                                                <rect key="frame" x="47" y="2514" width="583" height="386"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Match_example1" translatesAutoresizingMaskIntoConstraints="NO" id="nsl-Xz-777">
+                                                <rect key="frame" x="57" y="1562" width="549" height="179"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -741,7 +749,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5w-5o-SWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="967"/>
+            <point key="canvasLocation" x="827.96486090775977" y="966.79687499999989"/>
         </scene>
         <!--Menu-->
         <scene sceneID="lew-u5-dxq">
@@ -822,7 +830,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VAv-xq-nAy"/>
         <segue reference="bYO-jq-dKZ"/>
         <segue reference="hvt-Vk-8F1"/>
     </inferredMetricsTieBreakers>
